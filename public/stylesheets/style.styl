@@ -1,0 +1,32 @@
+body
+  padding 50px
+  font 14px "Lucida Grande", Helvetica, Arial, sans-serif
+a
+  color #00B7FF
+
+#nemo
+	width 500px
+	height 493px
+	padding 0
+	background url('/images/nemo.gif') no-repeat 0 0
+	border 2px solid black
+
+#crono
+	width 36px
+	height 72px
+	padding 0
+	background url('/images/crono.gif') no-repeat 0 0
+
+vendor(prop, args)
+	-webkit-{prop} args
+	-moz-{prop} args
+	{prop} args
+
+border-radius()
+	vendor('border-radius', arguments)
+
+box-shadow()
+	vendor('box-shadow', arguments)
+
+button
+	border-radius 1px 2px / 3px 4px
