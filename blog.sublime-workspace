@@ -1,0 +1,501 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"art",
+				"articleKey"
+			],
+			[
+				"a",
+				"abc123xyz"
+			],
+			[
+				"req",
+				"require"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app.js",
+			"settings":
+			{
+				"buffer_size": 1704,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "routes/index.js",
+			"settings":
+			{
+				"buffer_size": 605,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "models/article.js",
+			"settings":
+			{
+				"buffer_size": 680,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/stylesheets/style.styl",
+			"settings":
+			{
+				"buffer_size": 522,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/index.jade",
+			"settings":
+			{
+				"buffer_size": 70,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/article.jade",
+			"settings":
+			{
+				"buffer_size": 68,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "articles/first-post/meta.json",
+			"settings":
+			{
+				"buffer_size": 49,
+				"line_ending": "Unix",
+				"name": "{"
+			}
+		},
+		{
+			"file": "articles/first-post/article.md",
+			"settings":
+			{
+				"buffer_size": 71,
+				"line_ending": "Unix",
+				"name": "*Hello world*"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"sty",
+				"Set Syntax: Stylus"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"packa",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/mb/www/blog/gulpfile.js",
+		"/home/mb/www/blog/node_modules/stylus/lib/middleware.js",
+		"/home/mb/www/blog/bin/www",
+		"/home/mb/www/blog/package.json",
+		"/home/mb/www/blog/public/stylesheets/style.styl",
+		"/home/mb/www/blog/app.js",
+		"/home/mb/www/shoutbox/test_should/test.js",
+		"/home/mb/www/shoutbox/test_nodeunit/test.js",
+		"/home/mb/www/shoutbox/lib/middleware/user.js",
+		"/home/mb/www/shoutbox/lib/user.js",
+		"/home/mb/www/shoutbox/routes/register.js",
+		"/home/mb/www/shoutbox/app.js",
+		"/home/mb/www/nog/nog.js",
+		"/home/mb/www/_tmpl/gulpfile.js",
+		"/home/mb/www/_tmpl/package.json",
+		"/home/mb/www/shoutbox/test/test.js",
+		"/home/mb/www/shoutbox/routes/test.js",
+		"/home/mb/www/shoutbox/test.js",
+		"/home/mb/www/shoutbox/todo.js",
+		"/home/mb/www/shoutbox/routes/api.js",
+		"/home/mb/www/shoutbox/routes/entries.js",
+		"/home/mb/www/shoutbox/routes/index.js",
+		"/home/mb/www/shoutbox/gulpfile.js",
+		"/home/mb/www/shoutbox/bin/www",
+		"/home/mb/www/express-test/views/index.jade",
+		"/home/mb/www/express-test/views/layout.jade",
+		"/home/mb/www/shoutbox/routes/login.js",
+		"/home/mb/www/express-test/app.js",
+		"/home/mb/www/express-test/package.json",
+		"/home/mb/www/express-test/gulpfile.js",
+		"/home/mb/www/shoutbox/lib/middleware/page.js",
+		"/home/mb/www/shoutbox/views/entries.ejs",
+		"/home/mb/www/shoutbox/views/pager.ejs",
+		"/home/mb/www/shoutbox/lib/entry.js",
+		"/home/mb/www/shoutbox/lib/messages.js",
+		"/home/mb/www/shoutbox/views/messages.ejs",
+		"/home/mb/www/shoutbox/views/login.ejs",
+		"/home/mb/www/shoutbox/views/post.ejs",
+		"/home/mb/www/shoutbox/post.ejs",
+		"/home/mb/www/shoutbox/views/menu.ejs",
+		"/home/mb/www/shoutbox/views/index.ejs",
+		"/home/mb/www/shoutbox/views/register.ejs",
+		"/home/mb/www/foo/lib/log.js",
+		"/home/mb/www/shoutbox/sessions.js",
+		"/home/mb/.config/sublime-text-2/Packages/Package Control/Package Control.sublime-settings",
+		"/home/mb/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/mb/www/shoutbox/redistest.js",
+		"/home/mb/www/shoutbox/lib/users.js",
+		"/home/mb/www/shoutbox/package.json",
+		"/home/mb/.bash_aliases",
+		"/home/mb/sublimetext2/Sublime Text 2/foo.txt",
+		"/home/mb/Desktop/Shared/www/photo/app.js",
+		"/home/mb/Desktop/Shared/www/app.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"Article",
+			"assert",
+			"error",
+			"\nerror",
+			"exports",
+			"installed_",
+			"})"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"should"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 7,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app.js",
+					"settings":
+					{
+						"buffer_size": 1704,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1675,
+								1675
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 648.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "routes/index.js",
+					"settings":
+					{
+						"buffer_size": 605,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								502,
+								502
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 54.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "models/article.js",
+					"settings":
+					{
+						"buffer_size": 680,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								407,
+								407
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/stylesheets/style.styl",
+					"settings":
+					{
+						"buffer_size": 522,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								140,
+								140
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Stylus/Stylus.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "views/index.jade",
+					"settings":
+					{
+						"buffer_size": 70,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								58,
+								58
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "views/article.jade",
+					"settings":
+					{
+						"buffer_size": 68,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								51,
+								51
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "articles/first-post/meta.json",
+					"settings":
+					{
+						"buffer_size": 49,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								47,
+								47
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "articles/first-post/article.md",
+					"settings":
+					{
+						"buffer_size": 71,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								71,
+								71
+							]
+						],
+						"settings":
+						{
+							"auto_name": "*Hello world*",
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 128.0,
+	"status_bar_visible": true
+}

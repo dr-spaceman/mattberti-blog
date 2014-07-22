@@ -6,8 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var stylus = require('stylus')
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var routes = require('./routes/index')
 
 var app = express();
 
@@ -25,6 +24,7 @@ app.use(stylus.middleware({
   compress: true,
   compile : function(str, path){
     return stylus(str)
+            // use URI for any images under 10000 b
             .define('url', stylus.url({
               paths : [__dirname + '/public'],
               limit : 10000
@@ -34,8 +34,7 @@ app.use(stylus.middleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+app.use(routes);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

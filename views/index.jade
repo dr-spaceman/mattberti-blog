@@ -2,6 +2,10 @@ extends layout
 
 block content
   h1= title
-  p Hello world!
-  div#crono
-  div#nemo
+  #articles
+    each article, index in articles
+      article
+        header
+          .article-meta= article.datePrint
+          h2: a(href="/blog/" + article.key)!= article.title
+        != article.bodyStub
