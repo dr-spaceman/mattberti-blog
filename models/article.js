@@ -2,6 +2,7 @@ var path = require('path'),
     join = path.join;
 var fs = require('fs');
 var moment = require('moment');
+var async = require('async');
 var debug = require('debug')('blog:model:article');
 
 var Article = {};
@@ -13,29 +14,63 @@ Article.get = function (key, fn) {
 
   var article = { key: key };
 
-  fs.readFile(join('articles/', key, 'meta.json'), { encoding: 'utf-8' }, function(err, data){
-    if (err) {
-      return fn(err);
-    }
+  async.parallel([
+    function (cb) {
+      fs.readFile (join('articles/', key, 'meta.json'), "utf-8", function (err, content) {
+        if (err) return cb(err);
 
-    var meta = JSON.parse(data);
-    for (var attrname in meta) {
-      article[attrname] = meta[attrname]
-    }
-    article.datePrint = moment(article.date).format("D MMMM YYYY");
-    article.body = fs.readFileSync(join('articles/', article.key, 'article.md'), { encoding: 'utf-8' });
-    
-    var stubEndPos = article.body.indexOf('<!-- more -->')
-    if (stubEndPos !== -1) {
-    	article.bodyStub = article.body.substr(0, stubEndPos)
-    } else {
-    	article.bodyStub = article.body
-    }
+        var meta = JSON.parse(content);
+        for (var attrname in meta) {
+          article[attrname] = meta[attrname]
+        }
+        article.datePrint = moment(article.date).format("D MMMM YYYY");
 
-    debug("Article#get", article)
+        cb();
+      })
+    },
+    function (cb) {
+      fs.readFile (join('articles/', key, 'article.md'), "utf-8", function (err, content) {
+        if (err) return cb(err);
 
+        article.body = content;
+        var stubEndPos = article.body.indexOf('<!-- more -->')
+        if (stubEndPos !== -1) {
+         article.bodyStub = article.body.substr(0, stubEndPos)
+        } else {
+         article.bodyStub = article.body
+        }
+
+        cb();
+      })
+    }
+  ], function (err) {
+    debug("async fin.");
     return fn(null, article);
-  })
+  });
+
+  // async.eachSeries(openFiles, readFile, function(err){
+  //   if (err) {
+  //     return fn(err);
+  //   }
+
+  //   var meta = JSON.parse(data);
+  //   for (var attrname in meta) {
+  //     article[attrname] = meta[attrname]
+  //   }
+  //   article.datePrint = moment(article.date).format("D MMMM YYYY");
+  //   article.body = fs.readFileSync(join('articles/', article.key, 'article.md'), { encoding: 'utf-8' });
+    
+  //   var stubEndPos = article.body.indexOf('<!-- more -->')
+  //   if (stubEndPos !== -1) {
+  //   	article.bodyStub = article.body.substr(0, stubEndPos)
+  //   } else {
+  //   	article.bodyStub = article.body
+  //   }
+
+  //   debug("Article#get", article)
+
+  //   return fn(null, article);
+  // })
 }
 
 Article.getfoo = function(key, fn) {

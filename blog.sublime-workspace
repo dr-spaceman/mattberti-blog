@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"body",
+				"bodyStub"
+			],
+			[
 				"art",
 				"articleKey"
 			],
@@ -31,7 +35,7 @@
 			"file": "routes/index.js",
 			"settings":
 			{
-				"buffer_size": 605,
+				"buffer_size": 1371,
 				"line_ending": "Unix"
 			}
 		},
@@ -39,7 +43,7 @@
 			"file": "models/article.js",
 			"settings":
 			{
-				"buffer_size": 680,
+				"buffer_size": 2187,
 				"line_ending": "Unix"
 			}
 		},
@@ -47,7 +51,15 @@
 			"file": "public/stylesheets/style.styl",
 			"settings":
 			{
-				"buffer_size": 522,
+				"buffer_size": 3735,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/stylesheets/highlightcode.css",
+			"settings":
+			{
+				"buffer_size": 1050,
 				"line_ending": "Unix"
 			}
 		},
@@ -55,7 +67,7 @@
 			"file": "views/index.jade",
 			"settings":
 			{
-				"buffer_size": 70,
+				"buffer_size": 250,
 				"line_ending": "Unix"
 			}
 		},
@@ -63,42 +75,56 @@
 			"file": "views/article.jade",
 			"settings":
 			{
-				"buffer_size": 68,
+				"buffer_size": 95,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "articles/first-post/meta.json",
+			"file": "articles/npm-tricks/article.md",
 			"settings":
 			{
-				"buffer_size": 49,
-				"line_ending": "Unix",
-				"name": "{"
+				"buffer_size": 1226,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "articles/first-post/article.md",
 			"settings":
 			{
-				"buffer_size": 71,
-				"line_ending": "Unix",
-				"name": "*Hello world*"
+				"buffer_size": 404,
+				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 306.0,
 		"selected_items":
 		[
 			[
-				"sty",
-				"Set Syntax: Stylus"
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"mar",
+				"Set Syntax: MultiMarkdown"
 			],
 			[
 				"install",
 				"Package Control: Install Package"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"sty",
+				"Set Syntax: Stylus"
 			],
 			[
 				"javas",
@@ -109,7 +135,7 @@
 				"Preferences: Browse Packages"
 			]
 		],
-		"width": 449.0
+		"width": 548.0
 	},
 	"console":
 	{
@@ -126,10 +152,25 @@
 	},
 	"file_history":
 	[
+		"/home/mb/www/blog/articles/npm-tricks/article.md",
+		"/home/mb/.config/sublime-text-2/Packages/User/markdown-bold.sublime-snippet",
+		"/home/mb/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/mb/www/blog/articles/first-post/article.md",
+		"/home/mb/www/blog/articles/npm-tricks/body.md",
+		"/home/mb/www/blog/articles/npm-tricks/meta.json",
+		"/home/mb/www/blog/articles/~fuuu/article.md~",
+		"/home/mb/www/blog/articles/first-post/meta.json",
+		"/home/mb/www/blog/articles/fuuu/article.md",
+		"/home/mb/www/express-test/asynctest.js",
+		"/home/mb/www/express-test/users/3.json",
+		"/home/mb/www/blog/package.json",
+		"/home/mb/.config/sublime-text-2/Packages/JSLint/JSLint.sublime-settings",
+		"/home/mb/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/mb/.config/sublime-text-2/Packages/User/JavaScript.sublime-settings",
 		"/home/mb/www/blog/gulpfile.js",
+		"/home/mb/www/blog/public/stylesheets/normalize.css",
 		"/home/mb/www/blog/node_modules/stylus/lib/middleware.js",
 		"/home/mb/www/blog/bin/www",
-		"/home/mb/www/blog/package.json",
 		"/home/mb/www/blog/public/stylesheets/style.styl",
 		"/home/mb/www/blog/app.js",
 		"/home/mb/www/shoutbox/test_should/test.js",
@@ -186,7 +227,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
 		]
@@ -196,6 +237,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"no-h",
+			"bash",
+			"^    \\$(.+)$",
+			"\"})\n",
+			"	",
+			"\\t",
+			"  ",
+			"$t",
+			";",
+			"\\} *\\n",
+			"\\n}",
+			" {",
+			"    ",
+			"%;\n",
 			"Article",
 			"assert",
 			"error",
@@ -205,11 +260,18 @@
 			"})"
 		],
 		"highlight": true,
-		"in_selection": false,
+		"in_selection": true,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"no-highlight",
+			"````bash\\n\\$$1\\n````",
+			"````bash\\n$1\\n````",
+			"  ",
+			"\\t",
+			"",
+			"\\t",
 			"should"
 		],
 		"reverse": false,
@@ -221,7 +283,7 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -236,18 +298,18 @@
 						"selection":
 						[
 							[
-								1675,
-								1675
+								907,
+								907
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 648.0,
+						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -257,23 +319,24 @@
 					"file": "routes/index.js",
 					"settings":
 					{
-						"buffer_size": 605,
+						"buffer_size": 1371,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								502,
-								502
+								1264,
+								1264
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 54.0,
+						"translation.y": 594.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -283,24 +346,25 @@
 					"file": "models/article.js",
 					"settings":
 					{
-						"buffer_size": 680,
+						"buffer_size": 2187,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								407,
-								407
+								1242,
+								1242
 							]
 						],
 						"settings":
 						{
 							"auto_name": "",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 756.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -310,67 +374,70 @@
 					"file": "public/stylesheets/style.styl",
 					"settings":
 					{
-						"buffer_size": 522,
+						"buffer_size": 3735,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								140,
-								140
+								500,
+								500
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Stylus/Stylus.tmLanguage"
+							"syntax": "Packages/Stylus/Stylus.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 162.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "views/index.jade",
+					"file": "public/stylesheets/highlightcode.css",
 					"settings":
 					{
-						"buffer_size": 70,
+						"buffer_size": 1050,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								58,
-								58
+								1047,
+								1047
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 756.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "views/article.jade",
+					"file": "views/index.jade",
 					"settings":
 					{
-						"buffer_size": 68,
+						"buffer_size": 250,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								51,
-								51
+								194,
+								194
 							]
 						],
 						"settings":
@@ -385,24 +452,23 @@
 				},
 				{
 					"buffer": 6,
-					"file": "articles/first-post/meta.json",
+					"file": "views/article.jade",
 					"settings":
 					{
-						"buffer_size": 49,
+						"buffer_size": 95,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								47,
-								47
+								78,
+								78
 							]
 						],
 						"settings":
 						{
-							"auto_name": "{",
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -412,23 +478,48 @@
 				},
 				{
 					"buffer": 7,
-					"file": "articles/first-post/article.md",
+					"file": "articles/npm-tricks/article.md",
 					"settings":
 					{
-						"buffer_size": 71,
+						"buffer_size": 1226,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								71,
-								71
+								255,
+								255
 							]
 						],
 						"settings":
 						{
-							"auto_name": "*Hello world*",
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "articles/first-post/article.md",
+					"settings":
+					{
+						"buffer_size": 404,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								63,
+								63
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -471,6 +562,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 118.0
+	},
 	"replace":
 	{
 		"height": 64.0
@@ -496,6 +591,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 128.0,
+	"side_bar_width": 295.0,
 	"status_bar_visible": true
 }

@@ -1,13 +1,6 @@
 @import "normalize.css"
 @import "highlightcode.css"
 
-#nemo
-	width 500px
-	height 493px
-	padding 0
-	background url('/images/nemo.gif') no-repeat 0 0
-	border 2px solid black
-
 vendor(prop, args)
 	-webkit-{prop} args
 	-moz-{prop} args
@@ -31,7 +24,10 @@ body
 	font 14px "Lucida Grande", Helvetica, Arial, sans-serif
 
 article
-	font normal 16px/1.65 "Open Sans", sans-serif
+	font normal 1.8em/1.35 "Open Sans", sans-serif
+	& + article
+		padding 20px 0 0
+		border-top 1px solid #DDD
 
 h1, h2, h3,
 h4, h5, h6
@@ -108,8 +104,8 @@ hr
 blockquote
 	-moz-box-sizing: border-box
 	box-sizing: border-box
-	margin: 1.6em 0 1.6em -2em
-	padding: 0 0 0 1.6em
+	margin: 1.6em 0 1.6em -1.5em
+	padding: 0 0 0 1.1em
 	border-left: #4a4a4a 0.4em solid
 
 blockquote p
@@ -155,7 +151,7 @@ pre
 	border-radius: 3px
 
 pre code, tt
-	font-size: inherit
+	font-size: .8em
 	white-space: -moz-pre-wrap
 	white-space: pre-wrap
 	background: transparent

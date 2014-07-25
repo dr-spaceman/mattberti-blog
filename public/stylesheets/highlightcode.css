@@ -64,3 +64,8 @@
 .hljs-phony {
   color: #4c81c9;
 }
+
+.lang-bash .hljs-prompt, .lang-bash .hljs-keyword {
+  color: black;
+  font-weight: normal;
+}
