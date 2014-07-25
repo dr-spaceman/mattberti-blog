@@ -1,9 +1,11 @@
 extends layout
 
 block content
-  article
+  article#content
     header
       span.article-meta
         time= datePrint
       h1!= title
     != body
+    footer
+      a(href='/', class='home') Matt Berti Blog

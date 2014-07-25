@@ -23,8 +23,12 @@ html
 body
 	height 100%
 	max-height 100%
-	padding 8% 15%
+	padding 8% 10%
 	font 1.4em "Lucida Grande", Helvetica, Arial, sans-serif
+
+#content
+	max-width 1000px
+	margin 0 auto
 
 article
 	font normal 1.8em/1.35 "Open Sans", sans-serif
@@ -212,7 +216,23 @@ table.plain tbody > tr:nth-child(odd) > th
 		&:hover
 			text-decoration underline
 
+article
+	footer
+		a.home
+			position relative
+			&:before
+				content '\2190'
+				position absolute
+				left -23px
+
 @media only screen and (max-width: 767px)
 
 	body
 		font-size 120%
+		padding 3% 8%
+
+	#content
+		max-width 100%
+
+	pre code, tt
+		font-size .6em
