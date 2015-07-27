@@ -24,9 +24,11 @@
     "stylus": "0.42.3"
   },
   "devDependencies": {
+    "fs-extra": "^0.22.1",
     "gulp": "^3.8.6",
     "gulp-concat": "^2.3.3",
     "gulp-nodemon": "^1.0.4",
-    "gulp-plumber": "^0.6.3"
+    "gulp-plumber": "^0.6.3",
+    "open": "0.0.5"
   }
 }

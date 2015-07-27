@@ -48,6 +48,7 @@ h1
 	line-height: 1.2em
 	letter-spacing: -2px
 	text-indent: -3px
+	font-family 'JokalRegular'
 
 h2
 	font-size: 4rem
@@ -76,7 +77,7 @@ a:hover
 
 h1 a, h2 a, h3 a,
 h4 a, h5 a, h6 a
-	color: #50585D
+	color: black
 
 p, ul, ol, dl
 	margin: 1.6em 0
@@ -148,6 +149,8 @@ pre
 	white-space: pre
 	overflow: auto
 	background: #F7FAFB
+	position relative
+	counter-reset linenumbers
 
 pre code, tt
 	font-size: .8em
@@ -155,7 +158,13 @@ pre code, tt
 	background: transparent
 	border: none
 	padding: .1em
-
+	&:before
+		content counter(linenumbers)
+		counter-increment linenumbers
+		left -3ex
+		position absolute
+		text-align right
+		width 2.5ex
 
 kbd
 	display: inline-block
@@ -217,6 +226,8 @@ table.plain tbody > tr:nth-child(odd) > th
 			text-decoration underline
 
 article
+	a.more
+		text-decoration none
 	footer
 		a.home
 			position relative

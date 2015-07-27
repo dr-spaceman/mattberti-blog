@@ -43,8 +43,8 @@ router.get('/', function (req, res, next) {
 		debug("Got articles (render follows)", articles)
 
 		articles.forEach(function(article){
-			// var hasMore = article.body.length > article.bodyStub.length;
-			// if (hasMore) article.bodyStub += ' [Read more](/blog/' + article.key + ' "' + article.title +'")';
+			var hasMore = article.body.length > article.bodyStub.length;
+			if (hasMore) article.bodyStub += ' <a href="/blog/' + article.key + '" title="' + article.title +'" class="more">&rarr;</a>';
 			article.bodyStub = marked(article.bodyStub)
 		})
 

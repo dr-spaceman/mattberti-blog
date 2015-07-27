@@ -47,30 +47,6 @@ Article.get = function (key, fn) {
     debug("async fin.");
     return fn(null, article);
   });
-
-  // async.eachSeries(openFiles, readFile, function(err){
-  //   if (err) {
-  //     return fn(err);
-  //   }
-
-  //   var meta = JSON.parse(data);
-  //   for (var attrname in meta) {
-  //     article[attrname] = meta[attrname]
-  //   }
-  //   article.datePrint = moment(article.date).format("D MMMM YYYY");
-  //   article.body = fs.readFileSync(join('articles/', article.key, 'article.md'), { encoding: 'utf-8' });
-    
-  //   var stubEndPos = article.body.indexOf('<!-- more -->')
-  //   if (stubEndPos !== -1) {
-  //   	article.bodyStub = article.body.substr(0, stubEndPos)
-  //   } else {
-  //   	article.bodyStub = article.body
-  //   }
-
-  //   debug("Article#get", article)
-
-  //   return fn(null, article);
-  // })
 }
 
 Article.getfoo = function(key, fn) {

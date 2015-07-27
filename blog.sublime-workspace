@@ -23,78 +23,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "app.js",
-			"settings":
-			{
-				"buffer_size": 1704,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "routes/index.js",
-			"settings":
-			{
-				"buffer_size": 1371,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "models/article.js",
-			"settings":
-			{
-				"buffer_size": 2187,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/stylesheets/style.styl",
-			"settings":
-			{
-				"buffer_size": 3735,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/stylesheets/highlightcode.css",
-			"settings":
-			{
-				"buffer_size": 1050,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "views/index.jade",
-			"settings":
-			{
-				"buffer_size": 250,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "views/article.jade",
-			"settings":
-			{
-				"buffer_size": 95,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "articles/npm-tricks/article.md",
-			"settings":
-			{
-				"buffer_size": 1226,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "articles/first-post/article.md",
-			"settings":
-			{
-				"buffer_size": 404,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -152,10 +80,21 @@
 	},
 	"file_history":
 	[
+		"/home/mb/www/blog/articles/first-post/article.md",
+		"/home/mb/www/blog/views/article.jade",
+		"/home/mb/www/blog/views/index.jade",
+		"/home/mb/www/blog/public/stylesheets/style.styl",
+		"/home/mb/www/blog/models/article.js",
+		"/home/mb/www/blog/routes/index.js",
+		"/home/mb/www/blog/app.js",
+		"/home/mb/www/blog/public/stylesheets/highlightcode.css",
+		"/home/mb/www/blog/views/layout.jade",
+		"/home/mb/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/mb/www/blog/articles/using-async-module/meta.json",
+		"/home/mb/www/blog/articles/using-async-module/article.md",
 		"/home/mb/www/blog/articles/npm-tricks/article.md",
 		"/home/mb/.config/sublime-text-2/Packages/User/markdown-bold.sublime-snippet",
 		"/home/mb/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
-		"/home/mb/www/blog/articles/first-post/article.md",
 		"/home/mb/www/blog/articles/npm-tricks/body.md",
 		"/home/mb/www/blog/articles/npm-tricks/meta.json",
 		"/home/mb/www/blog/articles/~fuuu/article.md~",
@@ -165,14 +104,11 @@
 		"/home/mb/www/express-test/users/3.json",
 		"/home/mb/www/blog/package.json",
 		"/home/mb/.config/sublime-text-2/Packages/JSLint/JSLint.sublime-settings",
-		"/home/mb/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/home/mb/.config/sublime-text-2/Packages/User/JavaScript.sublime-settings",
 		"/home/mb/www/blog/gulpfile.js",
 		"/home/mb/www/blog/public/stylesheets/normalize.css",
 		"/home/mb/www/blog/node_modules/stylus/lib/middleware.js",
 		"/home/mb/www/blog/bin/www",
-		"/home/mb/www/blog/public/stylesheets/style.styl",
-		"/home/mb/www/blog/app.js",
 		"/home/mb/www/shoutbox/test_should/test.js",
 		"/home/mb/www/shoutbox/test_nodeunit/test.js",
 		"/home/mb/www/shoutbox/lib/middleware/user.js",
@@ -227,7 +163,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
 		]
@@ -237,6 +173,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"box-sizing(border-box)",
+			"box-sizing",
 			"no-h",
 			"bash",
 			"^    \\$(.+)$",
@@ -260,11 +198,12 @@
 			"})"
 		],
 		"highlight": true,
-		"in_selection": true,
+		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
+			"box-sizing border-box",
 			"no-highlight",
 			"````bash\\n\\$$1\\n````",
 			"````bash\\n$1\\n````",
@@ -283,251 +222,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "app.js",
-					"settings":
-					{
-						"buffer_size": 1704,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								907,
-								907
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 540.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "routes/index.js",
-					"settings":
-					{
-						"buffer_size": 1371,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1264,
-								1264
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 594.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "models/article.js",
-					"settings":
-					{
-						"buffer_size": 2187,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1242,
-								1242
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 756.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "public/stylesheets/style.styl",
-					"settings":
-					{
-						"buffer_size": 3735,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								500,
-								500
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Stylus/Stylus.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 162.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "public/stylesheets/highlightcode.css",
-					"settings":
-					{
-						"buffer_size": 1050,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1047,
-								1047
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 756.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "views/index.jade",
-					"settings":
-					{
-						"buffer_size": 250,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								194,
-								194
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "views/article.jade",
-					"settings":
-					{
-						"buffer_size": 95,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								78,
-								78
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "articles/npm-tricks/article.md",
-					"settings":
-					{
-						"buffer_size": 1226,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								255,
-								255
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "articles/first-post/article.md",
-					"settings":
-					{
-						"buffer_size": 404,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								63,
-								63
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -591,6 +287,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 295.0,
+	"side_bar_width": 119.0,
 	"status_bar_visible": true
 }

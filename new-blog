@@ -1,0 +1,8 @@
+#!/bin/sh
+title=$1
+if [ "$title" ]
+then
+  echo $title | sed "s/ */-/g"
+else
+  echo "please give a title"
+fi
