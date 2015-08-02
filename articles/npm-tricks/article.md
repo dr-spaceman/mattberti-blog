@@ -1,4 +1,4 @@
-Here are some sweet NPM tricks. <!-- more -->They might seem pretty obvious to some people. If you're one of them, check out [more NPM tricks at devthought.com](http://www.devthought.com/2012/02/17/npm-tricks/).
+Here are some sweet NPM tricks. <!-- more-Show me the tricks! -->They might seem pretty obvious to some people. If you're one of them, check out [more NPM tricks at devthought.com](http://www.devthought.com/2012/02/17/npm-tricks/).
 
 __To quickstart a project and build package.json:__
 

@@ -3,93 +3,103 @@ var path = require('path'),
 var fs = require('fs');
 var moment = require('moment');
 var async = require('async');
-var debug = require('debug')('blog:model:article');
+var debug_ = require('debug');
+var debug = debug_('blog:model:article');
+var marked = require('marked');
+var markdownDl = require('../markdown-dl');
+
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  highlight: function (code) {
+    return require('highlight.js').highlightAuto(code).value;
+  }
+});
 
 var Article = {};
 
 Article.get = function (key, fn) {
+  var debug = debug_('blog:model:article['+key+']');
+  debug("Article#get start...", key);
+
   if (!key) {
     return fn(new Error('No article key'));
   }
 
   var article = { key: key };
 
-  async.parallel([
-    function (cb) {
-      fs.readFile (join('articles/', key, 'meta.json'), "utf-8", function (err, content) {
-        if (err) return cb(err);
+  fs.readFile(join('articles/', key, 'meta.json'), "utf-8", function (err, content) {
+    debug("...Got meta.json...", key);
+    if (err) return fn(err);
 
-        var meta = JSON.parse(content);
-        for (var attrname in meta) {
-          article[attrname] = meta[attrname]
-        }
-        article.datePrint = moment(article.date).format("D MMMM YYYY");
-
-        cb();
-      })
-    },
-    function (cb) {
-      fs.readFile (join('articles/', key, 'article.md'), "utf-8", function (err, content) {
-        if (err) return cb(err);
-
-        article.body = content;
-        var stubEndPos = article.body.indexOf('<!-- more -->')
-        if (stubEndPos !== -1) {
-         article.bodyStub = article.body.substr(0, stubEndPos)
-        } else {
-         article.bodyStub = article.body
-        }
-
-        cb();
-      })
+    var meta = JSON.parse(content);
+    for (var attrname in meta) {
+      article[attrname] = meta[attrname]
     }
-  ], function (err) {
-    debug("async fin.");
-    return fn(null, article);
+    article.datePrint = moment(article.date).format("D MMMM YYYY");
+
+    fs.readFile(join('articles/', key, 'article.md'), "utf-8", function (err, content) {
+      debug("...Got article.md...", key);
+
+      if (err) return fn(err);
+      
+      article.body = content;
+      
+      // Find the stub seperator <!-- more[-custom] -->, if there is one
+      var re = /<!--\s*more[\-\:\| ]*(.*)\s*-->/;
+      var reOperation = null;
+      reOperation = re.exec(content);
+      
+      if (reOperation !== null) {
+        article.leadin = article.body.substr(0, reOperation.index);
+        article.leadinLinkWords = reOperation[1] ? reOperation[1].trim() : null;
+      }
+
+      debug("...Fin~", key);
+
+      return fn(null, article);
+    });
   });
 }
 
-Article.getfoo = function(key, fn) {
-	debug("Article#get")
-	return fn(null, {key: key, title:"fuuuuu"})
-}
-
-Article.getAll = function(fn){
+Article.getAll = function(fn) {
   fs.readdir('./articles', function(err, files){
     if(err) return fn(err);
 
     files = files.filter(function(file){
-    	debug(file, file.indexOf("~"))
+      // Filter out hidden articles
     	if (file.indexOf("~") === 0) return false;
     	return true;
-    })
+    });
+
+    debug("All files(%s): [%s]", files.length, files.toString());
 
     var articles = [],
       dir = '',
-      i = 0
+      numArticles = files.length,
+      numGotArticles = 0;
 
-    files.forEach(function(dir){
-      debug("key[%s]: %s", i, dir);
+    (function getArticles (files) {
+      var file = files.pop();
 
-      Article.get(dir, function(err, article){
-      	if (err) return fn(err)
+      Article.get(file, function(err, article){
+        if (err) return fn(err);
 
-      	debug("Article[%s]#get got %s", i, article.key);
         articles.push(article);
 
-        debug("iterator", i, files.length)
-        if (++i == files.length) {
-        	debug("Got all articles. Now to the sortmobile...");
-        	Article.sortAll(articles, fn);
+        if (files.length) {
+          getArticles(files);
+        } else {
+          Article.sortAll(articles, fn);
         }
       });
-    });
-    debug("/for iterator", i, files.length)
+    })(files);
+    
   });
 }
 
 Article.sortAll = function (articles, fn) {
-	debug("sorting articles...", articles)
+	debug("sorting articles...");
 
 	articles.sort(function(a, b){
 		if (a.date > b.date) return -1;
@@ -97,7 +107,11 @@ Article.sortAll = function (articles, fn) {
 		return 0;
 	})
 
-	return fn(null, articles)
+	return fn(null, articles);
+}
+
+Article.toHTML = function (unparsed) {
+  return marked(markdownDl(unparsed));
 }
 
 module.exports = Article;

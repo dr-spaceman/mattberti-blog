@@ -1,10 +1,15 @@
 {
   "name": "matt-berti-blog",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "start-dev": "npm run watch-css & npm run watch-js",
+    "test": "DEBUG=blog* nodemon -e js -x 'node ./test.js | node_modules/.bin/tap-spec'",
+    "build-css": "node-sass stylesheets/ -o public/css/prebuild/ & postcss --use autoprefixer ./public/css/prebuild/*.css --dir ./public/css/",
+    "watch-css": "nodemon -e scss -w stylesheets/ -x 'npm run build-css'",
+    "watch-js": "NODE_ENV=development DEBUG=blog* nodemon -e js,jade ./bin/www"
   },
   "engines": {
     "node": "0.10.x"
@@ -21,14 +26,13 @@
     "moment": "^2.7.0",
     "morgan": "~1.0.0",
     "static-favicon": "~1.0.0",
-    "stylus": "0.42.3"
+    "tape": "^4.0.1"
   },
   "devDependencies": {
+    "autoprefixer": "^5.2.0",
     "fs-extra": "^0.22.1",
-    "gulp": "^3.8.6",
-    "gulp-concat": "^2.3.3",
-    "gulp-nodemon": "^1.0.4",
-    "gulp-plumber": "^0.6.3",
-    "open": "0.0.5"
+    "node-sass": "^3.2.0",
+    "nodemon": "^1.4.0",
+    "tap-spec": "^4.0.2"
   }
 }

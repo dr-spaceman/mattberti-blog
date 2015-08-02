@@ -1,6 +1,6 @@
 From the [Sass documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#extend):
 
-There are often cases when designing a page when one class should have all the styles of another class, as well as its own specific styles. The most common way of handling this is to use both the more general class and the more specific class in the HTML. For example, suppose we have a design for a normal error and also for a serious error. We might write our markup like so:
+There are often cases when designing a page when one class should have all the styles of another class, as well as its own specific styles. The most common way of handling this is to use both the more general class and the more specific class in the HTML. <!--more-->For example, suppose we have a design for a normal error and also for a serious error. We might write our markup like so:
 
 ````html
 <div class="error seriousError">

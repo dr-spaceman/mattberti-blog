@@ -1,37 +1,38 @@
 var express = require('express');
-var router = express.Router()
+var router = express.Router();
 var path = require('path'),
-	join = path.join
-var marked = require('marked')
-var debug = require('debug')('blog:router')
-var fs = require('fs')
+	join = path.join;
+var debug = require('debug')('blog:router');
+var fs = require('fs');
 
-var Article = require('../models/article.js')
+var Article = require('../models/article.js');
 
-marked.setOptions({
-  renderer: new marked.Renderer(),
-  gfm: true,
-  highlight: function (code) {
-		return require('highlight.js').highlightAuto(code).value;
-	}
-});
-
-/* GET home page. */
-router.get('/blog/:article', function (req, res, next) {
-	Article.get(req.params.article, function(err, article){
-		console.log('Found article', article)
-
+router.param('article', function (req, res, next, articleKey) {
+	Article.get(articleKey, function(err, article){
 		if (err) {
-			var err = new Error('Not found')
-			err.status = 404
-			return next(err)
+			var err = new Error('Blog article not found ¯\_(ツ)_/¯');
+			err.status = 404;
+			next(err);
+		} else if (article) {
+			req.article = article;
+			next();
+		} else {
+			next(new Error("Failed to load article"));
 		}
-
-		article.body = marked(article.body)
-
-		res.render('article', article)
 	})
 })
+
+/* GET home page. */
+router.route('/blog/:article')
+.all(function (req, res, next) {
+	// runs for all HTTP verbs first
+	next();
+})
+.get(function (req, res, next) {
+	var article = req.article;
+	article.body = Article.toHTML(article.body);
+	res.render('article', article);
+});
 
 router.get('/blog', function (req, res) {
 	res.redirect('/')
@@ -39,14 +40,16 @@ router.get('/blog', function (req, res) {
 
 router.get('/', function (req, res, next) {
 	Article.getAll(function(err, articles){
-		if (err) return next(err)
-		debug("Got articles (render follows)", articles)
+		if (err) return next(err);
 
 		articles.forEach(function(article){
-			var hasMore = article.body.length > article.bodyStub.length;
-			if (hasMore) article.bodyStub += ' <a href="/blog/' + article.key + '" title="' + article.title +'" class="more">&rarr;</a>';
-			article.bodyStub = marked(article.bodyStub)
-		})
+			if (article.leadin) {
+				article.leadin += ' <a href="/blog/' + article.key + '" title="' + article.title +'" class="more">' + (article.leadinLinkWords ? article.leadinLinkWords + ' ' : '') + '&rarr;</a>';
+			} else {
+				article.leadin = article.body;
+			}
+			article.leadin = Article.toHTML(article.leadin);
+		});
 
 		res.render('index', { title: 'Matt Berti Blog', articles: articles })
 	})

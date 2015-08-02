@@ -23,6 +23,62 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 1126,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "stylesheets/application.scss",
+			"settings":
+			{
+				"buffer_size": 3817,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "articles/css-flexbox-properties/article.md",
+			"settings":
+			{
+				"buffer_size": 2769,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test.js",
+			"settings":
+			{
+				"buffer_size": 1214,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "models/article.js",
+			"settings":
+			{
+				"buffer_size": 3386,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app.js",
+			"settings":
+			{
+				"buffer_size": 1538,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "routes/index.js",
+			"settings":
+			{
+				"buffer_size": 1443,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -80,21 +136,36 @@
 	},
 	"file_history":
 	[
+		"/home/mb/www/blog/markdown-dl.js",
+		"/home/mb/www/blog/views/error.jade",
+		"/home/mb/www/blog/articles/~test-article/article.md",
+		"/home/mb/www/blog/articles/using-async-module/article.md",
+		"/home/mb/www/blog/articles/css-flexbox-properties/meta.json",
+		"/home/mb/www/seincal/package.json",
+		"/home/mb/www/blog/views/layout.jade",
+		"/home/mb/www/blog/.gitignore",
+		"/home/mb/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/mb/www/blog/public/stylesheets/application.scss",
+		"/home/mb/www/blog/public/stylesheets/utilities/_normalize.scss",
+		"/home/mb/www/blog/app.js",
+		"/home/mb/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/mb/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/mb/www/vgapp/README.md",
+		"/home/mb/www/blog/new-blog.js",
+		"/home/mb/www/seincal/readme.md",
+		"/home/mb/www/blog/public/stylesheets/normalize.css",
+		"/home/mb/www/seincal/public/sass/style.scss",
+		"/home/mb/www/blog/new-blog",
 		"/home/mb/www/blog/articles/first-post/article.md",
 		"/home/mb/www/blog/views/article.jade",
 		"/home/mb/www/blog/views/index.jade",
 		"/home/mb/www/blog/public/stylesheets/style.styl",
 		"/home/mb/www/blog/models/article.js",
 		"/home/mb/www/blog/routes/index.js",
-		"/home/mb/www/blog/app.js",
 		"/home/mb/www/blog/public/stylesheets/highlightcode.css",
-		"/home/mb/www/blog/views/layout.jade",
-		"/home/mb/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/home/mb/www/blog/articles/using-async-module/meta.json",
-		"/home/mb/www/blog/articles/using-async-module/article.md",
 		"/home/mb/www/blog/articles/npm-tricks/article.md",
 		"/home/mb/.config/sublime-text-2/Packages/User/markdown-bold.sublime-snippet",
-		"/home/mb/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
 		"/home/mb/www/blog/articles/npm-tricks/body.md",
 		"/home/mb/www/blog/articles/npm-tricks/meta.json",
 		"/home/mb/www/blog/articles/~fuuu/article.md~",
@@ -106,7 +177,6 @@
 		"/home/mb/.config/sublime-text-2/Packages/JSLint/JSLint.sublime-settings",
 		"/home/mb/.config/sublime-text-2/Packages/User/JavaScript.sublime-settings",
 		"/home/mb/www/blog/gulpfile.js",
-		"/home/mb/www/blog/public/stylesheets/normalize.css",
 		"/home/mb/www/blog/node_modules/stylus/lib/middleware.js",
 		"/home/mb/www/blog/bin/www",
 		"/home/mb/www/shoutbox/test_should/test.js",
@@ -148,7 +218,6 @@
 		"/home/mb/www/foo/lib/log.js",
 		"/home/mb/www/shoutbox/sessions.js",
 		"/home/mb/.config/sublime-text-2/Packages/Package Control/Package Control.sublime-settings",
-		"/home/mb/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/home/mb/www/shoutbox/redistest.js",
 		"/home/mb/www/shoutbox/lib/users.js",
 		"/home/mb/www/shoutbox/package.json",
@@ -163,7 +232,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
 		]
@@ -173,6 +242,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"function",
+			"console",
+			"conso",
+			"console.",
+			"Error",
+			"bodyStub",
+			"@media",
+			"small",
+			"slug",
+			"url",
 			"box-sizing(border-box)",
 			"box-sizing",
 			"no-h",
@@ -203,6 +282,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"leadin",
+			"slug",
 			"box-sizing border-box",
 			"no-highlight",
 			"````bash\\n\\$$1\\n````",
@@ -222,8 +303,200 @@
 	"groups":
 	[
 		{
+			"selected": 5,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "package.json",
+					"settings":
+					{
+						"buffer_size": 1126,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								649,
+								649
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "stylesheets/application.scss",
+					"settings":
+					{
+						"buffer_size": 3817,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3817,
+								3817
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4080.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "articles/css-flexbox-properties/article.md",
+					"settings":
+					{
+						"buffer_size": 2769,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								340,
+								340
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "test.js",
+					"settings":
+					{
+						"buffer_size": 1214,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								643,
+								643
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 102.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "models/article.js",
+					"settings":
+					{
+						"buffer_size": 3386,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2223,
+								2223
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 153.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app.js",
+					"settings":
+					{
+						"buffer_size": 1538,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								593,
+								593
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 102.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "routes/index.js",
+					"settings":
+					{
+						"buffer_size": 1443,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1416,
+								1416
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -287,6 +560,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 119.0,
+	"side_bar_width": 128.0,
 	"status_bar_visible": true
 }

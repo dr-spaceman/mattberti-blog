@@ -1,23 +1,23 @@
 var readline = require('readline'),
     rl = readline.createInterface({input: process.stdin, output: process.stdout});
-var moment = require('moment');
+var Moment = require('moment');
 var open = require('open');
 var fs = require('fs-extra');
 var path = require('path');
 
 var articlesDir = './articles';
 
-var today = new moment();
+var today = new Moment();
 var meta = {
   title: '',
-  url: '',
+  slug: '',
   date: today.format("YYYY-MM-DD"),
   tags: []
 };
 var prompts = Object.keys(meta);
 var i = 0;
 
-var get = function() {
+var get = function () {
   var which = prompts[i];
   rl.setPrompt(which + '> ');
   rl.prompt();
@@ -26,50 +26,62 @@ var get = function() {
 
 get('title');
 
-rl.on('line', function(line) {
+rl.on('line', function (line) {
   line = line.trim();
 
-  if (line == '')
+  if (line === '') {
     return get();
-
-  switch(i){
-    case 0:
-      meta['title'] = line;
-      meta['url'] = line.replace(/\s+/g, "-").replace(/[^a-z0-9\-]/ig, "").toLowerCase();
-      i++;
-      break;
-    case 1:
-      meta['url'] = line;
-      if(fs.existsSync(path.join(articlesDir, line)))
-        console.error("There's already an article with that URL");
-      else
-        i++;
-      break;
-    case 2:
-      meta['date'] = line;
-      i++;
-      break;
-    default:
-      meta['tags'].push(line);
-      rl.write(null, {name: 'c'});
   }
-  
+
+  switch (i) {
+  case 0:
+    meta.title = line;
+    meta.slug = line.replace(/\s+/g, "-").replace(/[^a-z0-9\-]/ig, "").toLowerCase();
+    i++;
+
+    break;
+
+  case 1:
+    meta.slug = line;
+
+    if (fs.existsSync(path.join(articlesDir, line))) {
+      console.error("There's already an article with that URL");
+    } else {
+      i++;
+    }
+
+    break;
+
+  case 2:
+    meta.date = line;
+    i++;
+
+    break;
+
+  default:
+    meta.tags.push(line);
+    rl.write(null, {name: 'c'});
+  }
+
   get();
 
-}).on('close', function() {
-  console.log(meta);
+}).on('close', function () {
+  /* On close create meta and article */
 
-  var dir = path.join(articlesDir, meta.url);
+  console.log("Creating article...");
+  console.dir(meta);
 
-  fs.outputJson(path.join(dir, 'meta.json'), meta, {spaces:2}, function(err){
+  var dir = path.join(articlesDir, meta.slug);
+  var articleText = "Your article here <!-- more -->\n\n## Headline level twos are OK";
+
+  fs.outputJson(path.join(dir, 'meta.json'), meta, {spaces: 2}, function (err){
     if(err) return console.error(err);
 
-    fs.createFile(path.join(dir, 'article.md'), function(err){
+    fs.outputFile(path.join(dir, 'article.md'), articleText, function (err){
       if(err) return console.error(err);
 
       console.log("Success!");
-      console.log("$ cd", dir);
-      console.log("$ xdg-open", path.join(dir, 'article.md'));
+      console.log("$ cd %s && xdg-open %s", dir, path.join(dir, 'article.md'));
       open(path.join(dir, 'meta.json'));
       open(path.join(dir, 'article.md'));
 
