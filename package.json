@@ -4,9 +4,10 @@
   "private": true,
   "main": "app.js",
   "scripts": {
+    "test": "node ./test.js",
     "start": "node ./bin/www",
     "start-dev": "npm run watch-css & npm run watch-js",
-    "test": "DEBUG=blog* nodemon -e js -x 'node ./test.js | node_modules/.bin/tap-spec'",
+    "start-test": "DEBUG=blog* nodemon -e js -x 'node ./test.js | node_modules/.bin/tap-spec'",
     "build-css": "node-sass stylesheets/ -o public/css/prebuild/ & postcss --use autoprefixer ./public/css/prebuild/*.css --dir ./public/css/",
     "watch-css": "nodemon -e scss -w stylesheets/ -x 'npm run build-css'",
     "watch-js": "NODE_ENV=development DEBUG=blog* nodemon -e js,jade ./bin/www"
