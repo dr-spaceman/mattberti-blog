@@ -2,3 +2,9 @@ language: node_js
 node_js:
   - "0.12"
   - "0.11"
+deploy:
+  skip_cleanup: true
+  provider: heroku
+  app: mattberti
+  api_key:
+    secure: "VB9iIJo5b7u3GQrNvrZT6yaR5AC8eAe2rodiZIGC0FtjxkOD2XXeziF4y5aMvFgqg9mJvlTKkQOuVlv3K6gq93gQ71KgfEyTugUN/f/cVRhEziEa6GBFJl4HeUTDFPg/ime/2hT0mLdpPHoLimoGr5xxzM9ecAbj5ozSHHLWW+MR6k10mNCXnoAF6b+0Ve4rHsPwE65Rjf1wJswsnAzodVQVJEfdTssJqFFo52jQv6zkcqDiE2zOOvXk8P/nZYusttHRdF+WTFw+54UfL1lqZ8C5UG/89PJ6nsp5caRdh8SQcSEg2c3aiyUJL9GFt65QUUq6pBLv1XMkyAhStIHKz4MHXMqHN+/lGLIMkAnvfwsH/SNAZ10X3PgI9euY9IPTjW+qzIbNMFO725lv3OHFiQpyCPSFXIIZldzudfE88lYk+9k6Qo2hqEE3qSQGU9aOXzFC/4YMzRsedT3QgFTIbIjxVAr8Q30XuBawKVFen/9n3B6lpsoaRgXoWhyihR85+HnI7JpT7MAqk7uHUlydh63ofOTRuaTbxcfhKrS5iWAxcN35NOhWnt+XQPpcDAo3babjrpgn86r/m3oGt8hjjcJGioIFbNEowe4XTn7gu4nICLWL62dN4UORDutdThsJkKPfRHYeBSoVqMncRxUzYH2jcFuQXaDTX78kfLGP0rQ="
