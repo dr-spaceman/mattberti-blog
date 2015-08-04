@@ -27,7 +27,7 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 1126,
+				"buffer_size": 1228,
 				"line_ending": "Unix"
 			}
 		},
@@ -43,7 +43,7 @@
 			"file": "articles/css-flexbox-properties/article.md",
 			"settings":
 			{
-				"buffer_size": 2769,
+				"buffer_size": 2967,
 				"line_ending": "Unix"
 			}
 		},
@@ -56,26 +56,21 @@
 			}
 		},
 		{
-			"file": "models/article.js",
-			"settings":
-			{
-				"buffer_size": 3386,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "app.js",
 			"settings":
 			{
-				"buffer_size": 1538,
+				"buffer_size": 1403,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "routes/index.js",
+			"contents": "var path = require('path'),\n    join = path.join;\nvar fs = require('fs');\nvar moment = require('mA\n    if (lang && hljs.getLanguage(lang)) {\n      try {\n        return hljs.highlight(lang, str).value;\n      } catch (__) {}\n    }\n \n    try {\n      return hljs.highlightAuto(str).value;\n    } catch (__) {}\n \n    return ''; // use external default escaping \n  }\n}).use(require('markdown-it-deflist'));\n// var marked = require('marked');\n// var markdownDl = require('../markdown-dl');\n\n// marked.setOptions({\n//   renderer: new marked.Renderer(),\n//   gfm: true,\n//   highlight: function (code) {\n//     return require('highlight.js').highlightAuto(code).value;\n//   }\n// });\n\nvar Article = {};\n\nArticle.get = function (key, fn) {\n  var debug = debug_('blog:model:article['+key+']');\n  debug(\"Article#get start...\", key);\n\n  if (!key) {\n    return fn(new Error('No article key'));\n  }\n\n  var article = { key: key };\n\n  fs.readFile(join('articles/', key, 'meta.json'), \"utf-8\", function (err, content) {\n    debug(\"...Got meta.json...\", key);\n    if (err) return fn(err);\n\n    var meta = JSON.parse(content);\n    for (var attrname in meta) {\n      article[attrname] = meta[attrname]\n    }\n    article.datePrint = moment(article.date).format(\"D MMMM YYYY\");\n\n    fs.readFile(join('articles/', key, 'article.md'), \"utf-8\", function (err, content) {\n      debug(\"...Got article.md...\", key);\n\n      if (err) return fn(err);\n      \n      article.body = content;\n      \n      // Find the stub seperator <!-- more[-custom] -->, if there is one\n      var re = /<!--\\s*more[\\-\\:\\| ]*(.*)\\s*-->/;\n      var reOperation = null;\n      reOperation = re.exec(content);\n      \n      if (reOperation !== null) {\n        article.leadin = article.body.substr(0, reOperation.index);\n        article.leadinLinkWords = reOperation[1] ? reOperation[1].trim() : null;\n      }\n\n      debug(\"...Fin~\", key);\n\n      return fn(null, article);\n    });\n  });\n}\n\nArticle.getAll = function(fn) {\n  fs.readdir('./articles', function(err, files){\n    if(err) return fn(err);\n\n    files = files.filter(function(file){\n      // Filter out hidden articles\n    	if (file.indexOf(\"~\") === 0) return false;\n    	return true;\n    });\n\n    debug(\"All files(%s): [%s]\", files.length, files.toString());\n\n    var articles = [],\n      dir = '',\n      numArticles = files.length,\n      numGotArticles = 0;\n\n    (function getArticles (files) {\n      var file = files.pop();\n\n      Article.get(file, function(err, article){\n        if (err) return fn(err);\n\n        articles.push(article);\n\n        if (files.length) {\n          getArticles(files);\n        } else {\n          Article.sortAll(articles, fn);\n        }\n      });\n    })(files);\n    \n  });\n}\n\nArticle.sortAll = function (articles, fn) {\n	debug(\"sorting articles...\");\n\n	articles.sort(function(a, b){\n		if (a.date > b.date) return -1;\n		if (a.date < b.date) return 1;\n		return 0;\n	})\n\n	return fn(null, articles);\n}\n\nArticle.toHTML = function (document) {\n  return md.render(document);\n  // return marked(markdownDl(unparsed));\n}\n\nmodule.exports = Article;",
+			"file": "models/article.js",
+			"file_size": 3315,
+			"file_write_time": 1438613109000000,
 			"settings":
 			{
-				"buffer_size": 1443,
+				"buffer_size": 3067,
 				"line_ending": "Unix"
 			}
 		}
@@ -83,9 +78,21 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 306.0,
+		"height": 75.0,
 		"selected_items":
 		[
+			[
+				"syntax:mar",
+				"Set Syntax: Markdown"
+			],
+			[
+				"install",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"markdown",
+				"Set Syntax: Markdown"
+			],
 			[
 				"java",
 				"Set Syntax: JavaScript"
@@ -97,10 +104,6 @@
 			[
 				"mar",
 				"Set Syntax: MultiMarkdown"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"css",
@@ -119,7 +122,7 @@
 				"Preferences: Browse Packages"
 			]
 		],
-		"width": 548.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -136,6 +139,21 @@
 	},
 	"file_history":
 	[
+		"/home/mb/www/blog/articles/testing-and-deploying-your-nodejs-app-with-travis-ci-and-heroku/article.md",
+		"/home/mb/www/blog/articles/foo/meta.json",
+		"/home/mb/www/blog/articles/foo/article.md",
+		"/home/mb/www/blog/README.md",
+		"/home/mb/www/blog/.travis.yml",
+		"/home/mb/www/blog/articles/css-flexbox-properties/article.md~",
+		"/home/mb/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/mb/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/mb/www/blog/travis.yml",
+		"/home/mb/www/blog/.gitignore",
+		"/home/mb/www/blog/models/article.js",
+		"/home/mb/www/blog/routes/index.js",
+		"/home/mb/www/blog/views/index.jade",
+		"/home/mb/www/blog/test.js",
+		"/home/mb/www/cn/app.js",
 		"/home/mb/www/blog/markdown-dl.js",
 		"/home/mb/www/blog/views/error.jade",
 		"/home/mb/www/blog/articles/~test-article/article.md",
@@ -143,13 +161,10 @@
 		"/home/mb/www/blog/articles/css-flexbox-properties/meta.json",
 		"/home/mb/www/seincal/package.json",
 		"/home/mb/www/blog/views/layout.jade",
-		"/home/mb/www/blog/.gitignore",
-		"/home/mb/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/home/mb/www/blog/public/stylesheets/application.scss",
 		"/home/mb/www/blog/public/stylesheets/utilities/_normalize.scss",
 		"/home/mb/www/blog/app.js",
 		"/home/mb/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
-		"/home/mb/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/home/mb/www/vgapp/README.md",
 		"/home/mb/www/blog/new-blog.js",
 		"/home/mb/www/seincal/readme.md",
@@ -158,10 +173,7 @@
 		"/home/mb/www/blog/new-blog",
 		"/home/mb/www/blog/articles/first-post/article.md",
 		"/home/mb/www/blog/views/article.jade",
-		"/home/mb/www/blog/views/index.jade",
 		"/home/mb/www/blog/public/stylesheets/style.styl",
-		"/home/mb/www/blog/models/article.js",
-		"/home/mb/www/blog/routes/index.js",
 		"/home/mb/www/blog/public/stylesheets/highlightcode.css",
 		"/home/mb/www/blog/articles/using-async-module/meta.json",
 		"/home/mb/www/blog/articles/npm-tricks/article.md",
@@ -232,7 +244,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
 		]
@@ -242,6 +254,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"drag",
 			"function",
 			"console",
 			"conso",
@@ -311,15 +324,15 @@
 					"file": "package.json",
 					"settings":
 					{
-						"buffer_size": 1126,
+						"buffer_size": 1228,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								649,
-								649
+								0,
+								0
 							]
 						],
 						"settings":
@@ -346,8 +359,8 @@
 						"selection":
 						[
 							[
-								3817,
-								3817
+								109,
+								109
 							]
 						],
 						"settings":
@@ -357,7 +370,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4080.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -367,15 +380,15 @@
 					"file": "articles/css-flexbox-properties/article.md",
 					"settings":
 					{
-						"buffer_size": 2769,
+						"buffer_size": 2967,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								340,
-								340
+								660,
+								660
 							]
 						],
 						"settings":
@@ -400,34 +413,36 @@
 						"selection":
 						[
 							[
-								643,
-								643
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 102.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "models/article.js",
+					"file": "app.js",
 					"settings":
 					{
-						"buffer_size": 3386,
+						"buffer_size": 1403,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2223,
-								2223
+								408,
+								135
 							]
 						],
 						"settings":
@@ -437,25 +452,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 153.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "app.js",
+					"file": "models/article.js",
 					"settings":
 					{
-						"buffer_size": 1538,
+						"buffer_size": 3067,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								593,
-								593
+								200,
+								98
 							]
 						],
 						"settings":
@@ -463,33 +478,6 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 102.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "routes/index.js",
-					"settings":
-					{
-						"buffer_size": 1443,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1416,
-								1416
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -545,6 +533,22 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"deploy",
+				"articles/testing-and-deploying-your-nodejs-app-with-travis-ci-and-heroku/article.md"
+			],
+			[
+				"arti",
+				"models/article.js"
+			],
+			[
+				"travis",
+				".travis.yml"
+			],
+			[
+				"pack",
+				"package.json"
+			]
 		],
 		"width": 0.0
 	},
@@ -560,6 +564,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 128.0,
+	"side_bar_width": 131.0,
 	"status_bar_visible": true
 }

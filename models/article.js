@@ -2,24 +2,44 @@ var path = require('path'),
     join = path.join;
 var fs = require('fs');
 var moment = require('moment');
-var async = require('async');
-var debug_ = require('debug');
-var debug = debug_('blog:model:article');
-var marked = require('marked');
-var markdownDl = require('../markdown-dl');
+var Debug = require('debug');
+var debug = new Debug('blog:model:article');
 
-marked.setOptions({
-  renderer: new marked.Renderer(),
-  gfm: true,
-  highlight: function (code) {
-    return require('highlight.js').highlightAuto(code).value;
+var MarkdownIt = require('markdown-it');
+var hljs = require('highlight.js'); // https://highlightjs.org/ 
+var md = new MarkdownIt({
+  html: true,
+  linkify: true,
+  highlight: function (str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return hljs.highlight(lang, str).value;
+      } catch (__) {}
+    }
+    try {
+      return hljs.highlightAuto(str).value;
+    } catch (__) {}
+ 
+    return ''; // use external default escaping 
   }
-});
+})
+.use(require('markdown-it-deflist'))
+.use(require('markdown-it-footnote'));
+// var marked = require('marked');
+// var markdownDl = require('../markdown-dl');
+
+// marked.setOptions({
+//   renderer: new marked.Renderer(),
+//   gfm: true,
+//   highlight: function (code) {
+//     return require('highlight.js').highlightAuto(code).value;
+//   }
+// });
 
 var Article = {};
 
 Article.get = function (key, fn) {
-  var debug = debug_('blog:model:article['+key+']');
+  var debug = new Debug('blog:model:article['+key+']');
   debug("Article#get start...", key);
 
   if (!key) {
@@ -110,8 +130,9 @@ Article.sortAll = function (articles, fn) {
 	return fn(null, articles);
 }
 
-Article.toHTML = function (unparsed) {
-  return marked(markdownDl(unparsed));
+Article.toHTML = function (document) {
+  return md.render(document);
+  // return marked(markdownDl(unparsed));
 }
 
 module.exports = Article;
