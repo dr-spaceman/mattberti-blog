@@ -1,0 +1,10 @@
+{
+  "title": "Testing and Deploying your Node.js app with Travis-CI and Heroku",
+  "slug": "testing-and-deploying-your-nodejs-app-with-travis-ci-and-heroku",
+  "date": "2015-08-03",
+  "tags": [
+    "node",
+    "travis-ci",
+    "heroku"
+  ]
+}
