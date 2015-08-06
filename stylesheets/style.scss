@@ -2,14 +2,14 @@
 @import "objects/highlightcode";
 
 @mixin breakpoint($break) {
-  @if $break == large { // anything bigger than ipad mini
-    @media (min-width: 1025px) { @content; }
+  @if $break == large { // anything bigger than ipad
+    @media (min-width: 1030px) { @content; }
   }
-  @else if $break == medium { // anything bigger than iphone 4/5
-    @media (min-width: 650px) { @content; }
+  @else if $break == medium {
+    @media (min-width: 640px) { @content; }
   }
-  @else if $break == small { // anything bigger than oldish iPhone
-    @media (min-width: 350px) { @content; }
+  @else if $break == small { // Bigger than iPhone 5
+    @media (min-width: 330px) { @content; }
   } @else {
     @media ($break) { @content; }
   }
@@ -26,37 +26,157 @@ body {
   font: normal 100% sans-serif;
 }
 
-body > .container {
-  width: 98%;
-  margin-right: auto;
-  margin-left: auto;
-  @include breakpoint(small) {
-    width: 90%;
+article.blog {
+  & > {
+    // Font sizes
+    header, footer, section, p, pre, figure, ul, ol, dl, blockquote {
+      font-size: 3.6vw;
+      line-height: 1.6;
+
+      @include breakpoint(small) {
+        font-size: 3vw;
+      }
+
+      @include breakpoint(medium) {
+        font-size: 2vw;
+      }
+
+      @include breakpoint(large) {
+        font-size: 1.5vw;
+      }
+    }
+
+    // Widths & margins
+    header, footer, section, h1, h2, h3, h4, h5, h6, 
+    p, pre, figure, ul, ol, dl, blockquote, hr, img {
+      width: 98%;
+      margin-right: auto;
+      margin-left: auto;
+
+      @include breakpoint(small) {
+        width: 90%;
+      }
+
+      @include breakpoint(medium) {
+        width: 80%;
+      }
+
+      @include breakpoint(large) {
+        width: 50%;
+      }
+    }
+
+    // Popout items
+    figure.pop, pre, blockquote {
+      box-sizing: padding-box;
+
+      @include breakpoint(small) {
+        width: 100%;
+      }
+
+      @include breakpoint(small) {
+        width: 90%;
+      }
+
+      @include breakpoint(large) {
+        width: 60%;
+      }
+    }
   }
-  @include breakpoint(medium) {
-    width: 60%;
+
+  pre {
+    padding: 1em 5%;
+    overflow: auto;
+    background: #f7fafb;
+    counter-reset: linenumbers;
+      line-height: 1;
+  }
+
+  blockquote {
+    padding: 0 0 0 5%;
+    border-left: #4a4a4a .4em solid;
+    p {
+      font-size: 1.2em;
+      font-style: italic;
+    }
+  }
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin-top: 0;
+  text-rendering: optimizeLegibility;
+  line-height: 1.2;
+  font-family: 'Open Sans',sans-serif;
+  letter-spacing: -.05em;
+  color: #282828;
+
+  a {
+    color: black;
   }
 }
 
 h1 {
   font-size: 5vw;
-  color: #282828;
 }
 
 h2 {
   font-size: 3.5vw;
-  color: #282828;
 }
 
-article {
-  font-size: 2.5vw;
-  @include breakpoint(medium) {
-    font-size: 2vw;
+a {
+  color: #0037ff;
+  transition: color ease .3s;
+
+  &:hover {
+    color: #00b7ff;
   }
 }
 
 img {
   max-width: 100%;
+}
+
+dl dt, dl dd {
+  margin-top: .4em;
+}
+
+code, tt {
+  font-family: Inconsolata,monospace,sans-serif;
+  font-size: .85em;
+  white-space: pre-wrap;
+  background-color: #FFCFD8;
+}
+
+pre code, tt {
+  font-size: .85em;
+  white-space: pre;
+  line-height: 1;
+  background: transparent;
+  border: none;
+  padding: .1em;
+}
+
+pre code:before, tt:before {
+  content: counter(linenumbers);
+  counter-increment: linenumbers;
+  left: -3ex;
+  position: absolute;
+  text-align: right;
+  width: 2.5ex;
+}
+
+kbd {
+  display: inline-block;
+  margin-bottom: .4em;
+  padding: 1px 8px;
+  border: #ccc 1px solid;
+  color: #666;
+  text-shadow: #fff 0 1px 0;
+  font-size: .9em;
+  font-weight: bold;
+  background: #f4f4f4;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 1px 0 0 #fff inset;
 }
 
 /*html {

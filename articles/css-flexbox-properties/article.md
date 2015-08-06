@@ -49,7 +49,7 @@ I've gotted so used to using CSS hacks like positioning and [floating](http://cs
 :  Horizontally aligns content __after__ any flexible lengths and any auto margins have been resolved; Helps distribute extra free space.
 
 <figure>
-  <img alt="justify-content" height="377" src="/images/justify-content.svg" width="508">
+  <img alt="justify-content" src="/images/justify-content.svg" width="504" height="270">
   <figcaption>An illustration of the five justify-content keywords and their effects on a flex container with three colored items.</figcaption>
 </figure>
 

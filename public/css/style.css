@@ -421,33 +421,126 @@ th {
 body {
   font: normal 100% sans-serif; }
 
-body > .container {
+article.blog > header, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
+  font-size: 3.6vw;
+  line-height: 1.6; }
+  @media (min-width: 330px) {
+    article.blog > header, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
+      font-size: 3vw; } }
+  @media (min-width: 640px) {
+    article.blog > header, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
+      font-size: 2vw; } }
+  @media (min-width: 1030px) {
+    article.blog > header, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
+      font-size: 1.5vw; } }
+
+article.blog > header, article.blog > footer, article.blog > section, article.blog > h1, article.blog > h2, article.blog > h3, article.blog > h4, article.blog > h5, article.blog > h6,
+article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote, article.blog > hr, article.blog > img {
   width: 98%;
   margin-right: auto;
   margin-left: auto; }
-  @media (min-width: 350px) {
-    body > .container {
+  @media (min-width: 330px) {
+    article.blog > header, article.blog > footer, article.blog > section, article.blog > h1, article.blog > h2, article.blog > h3, article.blog > h4, article.blog > h5, article.blog > h6,
+    article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote, article.blog > hr, article.blog > img {
       width: 90%; } }
-  @media (min-width: 650px) {
-    body > .container {
+  @media (min-width: 640px) {
+    article.blog > header, article.blog > footer, article.blog > section, article.blog > h1, article.blog > h2, article.blog > h3, article.blog > h4, article.blog > h5, article.blog > h6,
+    article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote, article.blog > hr, article.blog > img {
+      width: 80%; } }
+  @media (min-width: 1030px) {
+    article.blog > header, article.blog > footer, article.blog > section, article.blog > h1, article.blog > h2, article.blog > h3, article.blog > h4, article.blog > h5, article.blog > h6,
+    article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote, article.blog > hr, article.blog > img {
+      width: 50%; } }
+
+article.blog > figure.pop, article.blog > pre, article.blog > blockquote {
+  box-sizing: padding-box; }
+  @media (min-width: 330px) {
+    article.blog > figure.pop, article.blog > pre, article.blog > blockquote {
+      width: 100%; } }
+  @media (min-width: 330px) {
+    article.blog > figure.pop, article.blog > pre, article.blog > blockquote {
+      width: 90%; } }
+  @media (min-width: 1030px) {
+    article.blog > figure.pop, article.blog > pre, article.blog > blockquote {
       width: 60%; } }
 
-h1 {
-  font-size: 5vw;
+article.blog pre {
+  padding: 1em 5%;
+  overflow: auto;
+  background: #f7fafb;
+  counter-reset: linenumbers;
+  line-height: 1; }
+
+article.blog blockquote {
+  padding: 0 0 0 5%;
+  border-left: #4a4a4a 0.4em solid; }
+  article.blog blockquote p {
+    font-size: 1.2em;
+    font-style: italic; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  text-rendering: optimizeLegibility;
+  line-height: 1.2;
+  font-family: 'Open Sans',sans-serif;
+  letter-spacing: -.05em;
   color: #282828; }
+  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: black; }
+
+h1 {
+  font-size: 5vw; }
 
 h2 {
-  font-size: 3.5vw;
-  color: #282828; }
+  font-size: 3.5vw; }
 
-article {
-  font-size: 2.5vw; }
-  @media (min-width: 650px) {
-    article {
-      font-size: 2vw; } }
+a {
+  color: #0037ff;
+  -webkit-transition: color ease 0.3s;
+          transition: color ease 0.3s; }
+  a:hover {
+    color: #00b7ff; }
 
 img {
   max-width: 100%; }
+
+dl dt, dl dd {
+  margin-top: .4em; }
+
+code, tt {
+  font-family: Inconsolata,monospace,sans-serif;
+  font-size: .85em;
+  white-space: pre-wrap;
+  background-color: #FFCFD8; }
+
+pre code, tt {
+  font-size: .85em;
+  white-space: pre;
+  line-height: 1;
+  background: transparent;
+  border: none;
+  padding: .1em; }
+
+pre code:before, tt:before {
+  content: counter(linenumbers);
+  counter-increment: linenumbers;
+  left: -3ex;
+  position: absolute;
+  text-align: right;
+  width: 2.5ex; }
+
+kbd {
+  display: inline-block;
+  margin-bottom: .4em;
+  padding: 1px 8px;
+  border: #ccc 1px solid;
+  color: #666;
+  text-shadow: #fff 0 1px 0;
+  font-size: .9em;
+  font-weight: bold;
+  background: #f4f4f4;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 0 #fff inset; }
 
 /*html {
   height: 100%;

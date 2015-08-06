@@ -2,9 +2,9 @@ extends layout
 
 block content
   h1= title
-  #content.articles
+  .articles
     each article, index in articles
-      article
+      article.blog
         header
           .article-meta= article.datePrint
           h2: a(href="/blog/" + article.key)!= article.title
