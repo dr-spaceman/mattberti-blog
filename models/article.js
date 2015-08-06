@@ -75,9 +75,16 @@ Article.get = function (key, fn) {
         article.leadinLinkWords = reOperation[1] ? reOperation[1].trim() : null;
       }
 
-      debug("...Fin~", key);
+      // Check for custom stylesheet
+      cssFile = 'public/css/article--' + key + '.css';
+      fs.exists(cssFile, function (exists) {
+        debug("check custom css (%s): %s", cssFile, exists);
+        debug("...Fin~", key);
 
-      return fn(null, article);
+        if (exists) article.hasStylesheet = true;
+
+        return fn(null, article);
+      });
     });
   });
 }

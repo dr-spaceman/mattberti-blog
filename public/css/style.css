@@ -425,34 +425,34 @@ body {
 body > h1 {
   margin: 1em; }
 
-article.blog > header, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
+article.blog > .article-meta, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
   font-size: 4.3vw;
   line-height: 1.6; }
   @media (min-width: 330px) {
-    article.blog > header, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
-      font-size: 3vw; } }
+    article.blog > .article-meta, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
+      font-size: 3.3vw; } }
   @media (min-width: 640px) {
-    article.blog > header, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
+    article.blog > .article-meta, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
       font-size: 2vw; } }
   @media (min-width: 1030px) {
-    article.blog > header, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
+    article.blog > .article-meta, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
       font-size: 1.5vw; } }
 
-article.blog > header, article.blog > footer, article.blog > section, article.blog > h1, article.blog > h2, article.blog > h3, article.blog > h4, article.blog > h5, article.blog > h6,
+article.blog > .article-meta, article.blog > footer, article.blog > section, article.blog > h2, article.blog > h3, article.blog > h4, article.blog > h5, article.blog > h6,
 article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote, article.blog > hr, article.blog > img {
   width: 98%;
   margin-right: auto;
   margin-left: auto; }
   @media (min-width: 330px) {
-    article.blog > header, article.blog > footer, article.blog > section, article.blog > h1, article.blog > h2, article.blog > h3, article.blog > h4, article.blog > h5, article.blog > h6,
+    article.blog > .article-meta, article.blog > footer, article.blog > section, article.blog > h2, article.blog > h3, article.blog > h4, article.blog > h5, article.blog > h6,
     article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote, article.blog > hr, article.blog > img {
       width: 90%; } }
   @media (min-width: 640px) {
-    article.blog > header, article.blog > footer, article.blog > section, article.blog > h1, article.blog > h2, article.blog > h3, article.blog > h4, article.blog > h5, article.blog > h6,
+    article.blog > .article-meta, article.blog > footer, article.blog > section, article.blog > h2, article.blog > h3, article.blog > h4, article.blog > h5, article.blog > h6,
     article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote, article.blog > hr, article.blog > img {
       width: 80%; } }
   @media (min-width: 1030px) {
-    article.blog > header, article.blog > footer, article.blog > section, article.blog > h1, article.blog > h2, article.blog > h3, article.blog > h4, article.blog > h5, article.blog > h6,
+    article.blog > .article-meta, article.blog > footer, article.blog > section, article.blog > h2, article.blog > h3, article.blog > h4, article.blog > h5, article.blog > h6,
     article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote, article.blog > hr, article.blog > img {
       width: 50%; } }
 
@@ -467,6 +467,11 @@ article.blog > .pop, article.blog > pre, article.blog > blockquote {
   @media (min-width: 1030px) {
     article.blog > .pop, article.blog > pre, article.blog > blockquote {
       width: 60%; } }
+
+article.blog h1 {
+  text-align: center;
+  margin-left: 1em;
+  margin-right: 1em; }
 
 article.blog pre {
   padding: 1em 5%;
@@ -512,7 +517,7 @@ article.blog + nav {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   text-rendering: optimizeLegibility;
-  line-height: 1.2;
+  line-height: 1;
   font-family: 'Open Sans',sans-serif;
   letter-spacing: -.05em;
   color: #282828; }
@@ -520,10 +525,22 @@ h1, h2, h3, h4, h5, h6 {
     color: black; }
 
 h1 {
-  font-size: 5vw; }
+  font-size: 7vw; }
 
 h2 {
-  font-size: 3.5vw; }
+  font-size: 6vw; }
+
+h3 {
+  font-size: 5.5vw; }
+
+h4 {
+  font-size: 5.2vw; }
+
+h5 {
+  font-size: 4.9vw; }
+
+h6 {
+  font-size: 4.6vw; }
 
 a {
   color: #0037ff;

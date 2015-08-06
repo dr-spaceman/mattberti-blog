@@ -34,7 +34,7 @@ body > h1 {
 article.blog {
   & > {
     // Font sizes
-    header, footer, section, p, pre, figure, ul, ol, dl, blockquote {
+    .article-meta, footer, section, p, pre, figure, ul, ol, dl, blockquote {
       font-size: 4.3vw;
       line-height: 1.6;
 
@@ -52,7 +52,7 @@ article.blog {
     }
 
     // Widths & margins
-    header, footer, section, h1, h2, h3, h4, h5, h6, 
+    .article-meta, footer, section, h2, h3, h4, h5, h6, 
     p, pre, figure, ul, ol, dl, blockquote, hr, img {
       width: 98%;
       margin-right: auto;
@@ -87,6 +87,12 @@ article.blog {
         width: 60%;
       }
     }
+  }
+
+  h1 {
+    text-align: center;
+    margin-left: 1em;
+    margin-right: 1em;
   }
 
   pre {
@@ -148,7 +154,7 @@ article.blog {
 h1,h2,h3,h4,h5,h6 {
   margin-top: 0;
   text-rendering: optimizeLegibility;
-  line-height: 1.2;
+  line-height: 1;
   font-family: 'Open Sans',sans-serif;
   letter-spacing: -.05em;
   color: #282828;
@@ -159,11 +165,27 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h1 {
-  font-size: 5vw;
+  font-size: 7vw;
 }
 
 h2 {
-  font-size: 3.5vw;
+  font-size: 6vw;
+}
+
+h3 {
+  font-size: 5.5vw;
+}
+
+h4 {
+  font-size: 5.2vw;
+}
+
+h5 {
+  font-size: 4.9vw;
+}
+
+h6 {
+  font-size: 4.6vw;
 }
 
 a {

@@ -1,7 +1,8 @@
-I've gotted so used to using CSS hacks like positioning and [floating](http://css.maxdesign.com.au/floatutorial/) over the years that it was at first hard for me to wrap my head around [CSS Flexboxes](https://drafts.csswg.org/css-flexbox-1). Here are the properties listed and explained along with some examples that helped me understand.<!--more-->
+I've gotten so used to using CSS hacks like positioning and [floating](http://css.maxdesign.com.au/floatutorial/) over the years that it was at first hard for me to wrap my head around [CSS Flexboxes](https://drafts.csswg.org/css-flexbox-1). Here are my notes -- the properties listed and explained along with some examples that helped me understand.<!--more-->
 
-<figure>
+<figure class="pop">
   <figcaption>Flexboxes have two components: containers and flex items. To create a flexbox, the container should be given the `display: flex;` CSS property.</figcaption>
+  <div class="demo-cfp--flexcontainer">
 
 ```css
 .flex-container {
@@ -14,11 +15,10 @@ I've gotted so used to using CSS hacks like positioning and [floating](http://cs
   <div>flex item</div>
 </div>
 ```
-  <div class="figure">
-    <div class="figure--flexcontainer">
-      <div>flex item</div>
-      <div>flex item</div>
-    </div>
+<div class="figure demo-cfp--flexcontainer-styled">
+  <div>flex item</div>
+  <div>flex item</div>
+</div>
   </div>
 </figure> 
 
@@ -77,8 +77,23 @@ I've gotted so used to using CSS hacks like positioning and [floating](http://cs
 :  When a box is a flex item, `flex` is consulted instead of the main size property to determine the main size of the box.
 :  Authors are encouraged to control flexibility using the `flex` shorthand rather than with its longhand properties directly (below), as the shorthand correctly resets any unspecified components to accommodate common uses^[[W3C Editor's Draft: CC Flexbox Module](https://drafts.csswg.org/css-flexbox-1/#flex-components)]
 
-<figure>
+<figure class="pop">
   <figcaption>Milti-line flex containers with `flex: initial` and `flex: auto`:</figcaption>
+  <div class="demo-cfp--figure">
+    <div class="demo-cfp--flexcontainer-styled">
+      <div>foo</div>
+      <div>bar</div>
+      <div>fuuu</div>
+      <div>baaa</div>
+    </div>
+    <div class="demo-cfp--flexcontainer-styled demo-cfp--flexlines-width-auto">
+      <div>foo</div>
+      <div>bar</div>
+      <div>fuuu</div>
+      <div>baaa</div>
+    </div>
+  </div>
+  <div class="demo-cfp--flexcontainer demo-cfp--flexlines-width-auto">
 
 ```html
 <div class="flex-container">
@@ -87,7 +102,8 @@ I've gotted so used to using CSS hacks like positioning and [floating](http://cs
   <div>fuuu</div>
   <div>baaa</div>
 </div>
-<div class="flex-container flexlines--width-auto">
+<div class="flex-container
+  flex-auto">
   <div>foo</div>
   <div>bar</div>
   <div>fuuu</div>
@@ -98,6 +114,7 @@ I've gotted so used to using CSS hacks like positioning and [floating](http://cs
 .flex-container {
   display: flex;
   flex-flow: row wrap;
+  width: 170px;
 }
 
 .flex-container > * {
@@ -105,23 +122,10 @@ I've gotted so used to using CSS hacks like positioning and [floating](http://cs
   min-width: 50px;
 }
 
-.flexlines--width-auto > * {
+.flex-auto > * {
   flex: auto;
 }
 ```
-  <div class="figure">
-    <div class="figure--flexcontainer">
-      <div>foo</div>
-      <div>bar</div>
-      <div>fuuu</div>
-      <div>baaa</div>
-    </div>
-    <div class="figure--flexcontainer flexlines--width-auto">
-      <div>foo</div>
-      <div>bar</div>
-      <div>fuuu</div>
-      <div>baaa</div>
-    </div>
   </div>
 </figure>
 
@@ -156,15 +160,15 @@ I've gotted so used to using CSS hacks like positioning and [floating](http://cs
 One use of auto margins in the main axis is to separate flex items into distinct "groups". The following example shows how to use this to reproduce a common UI pattern - a single bar of actions with some aligned on the left and others aligned on the right.
 
 <figure class="pop">
-  <div class="figure">
-    <ul class="figure--flexcontainer-nav">
+  <div class="demo-cfp--figure" style="width:100%;">
+    <ul class="demo-cfp--flexcontainer-styled-nav">
       <li><a href=/about>About</a>
       <li><a href=/projects>Projects</a>
       <li><a href=/interact>Interact</a>
       <li id="login"><a href=/login>Login</a>
     </ul>
   </div>
-  <div class="figure--codes">
+  <div class="demo-cfp--styled-codes">
 
 ```html
 <nav>
@@ -188,7 +192,7 @@ nav > ul > #login {
   margin-left: auto;
 }
 ```
-  </div><!--/.figure--codes-->
+  </div><!--/.demo-cfp--styled-codes-->
 </figure>
 
 
@@ -198,46 +202,7 @@ Using `order` to manipulate visual presentation while leaving source order intac
 
 <iframe width="100%" height="300" src="//jsfiddle.net/mrberti/c7t0fbb8/3/embedded/result,html,css" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-<style type="text/css">
-.figure--flexcontainer {
-  display: flex;
-  flex-flow: row wrap;
-  width: 200px;
-  background-color: black;
-  margin: 5px 0 0;
-  padding: 0 0 5px 5px
-}
+## Additional resources
 
-.figure--flexcontainer > * {
-  min-width: 50px;
-  margin: 5px 5px 0 0;
-  background-color: pink;
-  color: black;
-}
-
-.flexlines--width-auto > * {
-  flex: auto;
-}
-
-ul.figure--flexcontainer-nav {
-  display: flex;
-  margin: 0;
-  padding: 5px;
-  list-style: none;
-  background-color: #C6E2C5;
-}
-ul.figure--flexcontainer-nav li {
-  min-width: min-content; /* Prevent items from getting too small for their content. */
-  margin:  5px;
-  padding: 5px 10px;
-  border: 1px solid #292929;
-}
-ul.figure--flexcontainer-nav li a {
-  color: #292929;
-  text-decoration: none;
-  font-weight: bold;
-}
-ul.figure--flexcontainer-nav li:last-child {
-  margin-left: auto;
-}
-</style>
+- [Solved by Flexbox: Cleaner, hack-free CSS](https://philipwalton.github.io/solved-by-flexbox/)
+- [Udacity: Responsive Web Design Fundamentals](https://www.udacity.com/course/responsive-web-design-fundamentals--ud893)

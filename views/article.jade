@@ -1,11 +1,17 @@
 extends layout
 
+block head-add
+  if stylesheet
+    link(rel='stylesheet', href='#{stylesheet}')
+
 block content
   article.blog
-    header
-      span.article-meta
-        time= datePrint
-      h1!= title
+    .article-meta
+      time= datePrint
+    if customHeading
+      != customHeading
+    else
+      h1= title
     != body
   nav
     a(href='/', class='home') Matt Berti Blog

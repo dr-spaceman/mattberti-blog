@@ -12,7 +12,11 @@ test('Get article `~test` and manipulate/parse it', function (t) {
     t.ok(article.leadinLinkWords, "has custom leadin link words");
 
     //test for Definition lists
-    t.ok(Article.toHTML(article.body).indexOf('<dl>') !== -1, "markdown parsed DL");
+    var parsed = Article.toHTML(article.body);
+    t.ok(parsed.indexOf('<dl>') !== -1, "markdown parsed DL");
+
+    //custom css
+    t.ok(article.hasStylesheet, "has custom stylesheet");
 
     t.end();
   });

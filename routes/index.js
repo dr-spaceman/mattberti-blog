@@ -10,7 +10,7 @@ var Article = require('../models/article.js');
 router.param('article', function (req, res, next, articleKey) {
 	Article.get(articleKey, function(err, article){
 		if (err) {
-			var err = new Error('Blog article not found ¯\_(ツ)_/¯');
+			var err = new Error('Blog article not found ¯\\_(ツ)_/¯');
 			err.status = 404;
 			next(err);
 		} else if (article) {
@@ -31,6 +31,7 @@ router.route('/blog/:article')
 .get(function (req, res, next) {
 	var article = req.article;
 	article.body = Article.toHTML(article.body);
+	article.stylesheet = article.hasStylesheet ? "/css/article--" + article.key + ".css" : null;
 	res.render('article', article);
 });
 

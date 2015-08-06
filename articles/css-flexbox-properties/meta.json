@@ -6,5 +6,6 @@
     "css",
     "flexbox",
     "responsive_design"
-  ]
+  ],
+  "customHeading": "<h1 class=\"demo-cfp--flexcontainer demo-cfp--flexcontainer-styled\"><span>C</span><span>S</span><span>S</span> <span>flexbox</span> <span>properties</span></h1>"
 }
