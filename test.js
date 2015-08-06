@@ -1,10 +1,9 @@
 var test = require('tape');
-var markdownDl = require('./markdown-dl');
 var Article = require('./models/article.js');
 var moment = require('moment');
 
-test('Get article `~test-article` and manipulate/parse it', function (t) {
-  Article.get("~test-article", function (err, article) {
+test('Get article `~test` and manipulate/parse it', function (t) {
+  Article.get("~test", function (err, article) {
     t.error(err, "Article#get no error");
     t.ok(article, "article get");
 

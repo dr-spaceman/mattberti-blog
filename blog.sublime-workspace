@@ -40,14 +40,6 @@
 			}
 		},
 		{
-			"file": "articles/css-flexbox-properties/article.md",
-			"settings":
-			{
-				"buffer_size": 2967,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "test.js",
 			"settings":
 			{
@@ -64,13 +56,18 @@
 			}
 		},
 		{
-			"contents": "var path = require('path'),\n    join = path.join;\nvar fs = require('fs');\nvar moment = require('mA\n    if (lang && hljs.getLanguage(lang)) {\n      try {\n        return hljs.highlight(lang, str).value;\n      } catch (__) {}\n    }\n \n    try {\n      return hljs.highlightAuto(str).value;\n    } catch (__) {}\n \n    return ''; // use external default escaping \n  }\n}).use(require('markdown-it-deflist'));\n// var marked = require('marked');\n// var markdownDl = require('../markdown-dl');\n\n// marked.setOptions({\n//   renderer: new marked.Renderer(),\n//   gfm: true,\n//   highlight: function (code) {\n//     return require('highlight.js').highlightAuto(code).value;\n//   }\n// });\n\nvar Article = {};\n\nArticle.get = function (key, fn) {\n  var debug = debug_('blog:model:article['+key+']');\n  debug(\"Article#get start...\", key);\n\n  if (!key) {\n    return fn(new Error('No article key'));\n  }\n\n  var article = { key: key };\n\n  fs.readFile(join('articles/', key, 'meta.json'), \"utf-8\", function (err, content) {\n    debug(\"...Got meta.json...\", key);\n    if (err) return fn(err);\n\n    var meta = JSON.parse(content);\n    for (var attrname in meta) {\n      article[attrname] = meta[attrname]\n    }\n    article.datePrint = moment(article.date).format(\"D MMMM YYYY\");\n\n    fs.readFile(join('articles/', key, 'article.md'), \"utf-8\", function (err, content) {\n      debug(\"...Got article.md...\", key);\n\n      if (err) return fn(err);\n      \n      article.body = content;\n      \n      // Find the stub seperator <!-- more[-custom] -->, if there is one\n      var re = /<!--\\s*more[\\-\\:\\| ]*(.*)\\s*-->/;\n      var reOperation = null;\n      reOperation = re.exec(content);\n      \n      if (reOperation !== null) {\n        article.leadin = article.body.substr(0, reOperation.index);\n        article.leadinLinkWords = reOperation[1] ? reOperation[1].trim() : null;\n      }\n\n      debug(\"...Fin~\", key);\n\n      return fn(null, article);\n    });\n  });\n}\n\nArticle.getAll = function(fn) {\n  fs.readdir('./articles', function(err, files){\n    if(err) return fn(err);\n\n    files = files.filter(function(file){\n      // Filter out hidden articles\n    	if (file.indexOf(\"~\") === 0) return false;\n    	return true;\n    });\n\n    debug(\"All files(%s): [%s]\", files.length, files.toString());\n\n    var articles = [],\n      dir = '',\n      numArticles = files.length,\n      numGotArticles = 0;\n\n    (function getArticles (files) {\n      var file = files.pop();\n\n      Article.get(file, function(err, article){\n        if (err) return fn(err);\n\n        articles.push(article);\n\n        if (files.length) {\n          getArticles(files);\n        } else {\n          Article.sortAll(articles, fn);\n        }\n      });\n    })(files);\n    \n  });\n}\n\nArticle.sortAll = function (articles, fn) {\n	debug(\"sorting articles...\");\n\n	articles.sort(function(a, b){\n		if (a.date > b.date) return -1;\n		if (a.date < b.date) return 1;\n		return 0;\n	})\n\n	return fn(null, articles);\n}\n\nArticle.toHTML = function (document) {\n  return md.render(document);\n  // return marked(markdownDl(unparsed));\n}\n\nmodule.exports = Article;",
 			"file": "models/article.js",
-			"file_size": 3315,
-			"file_write_time": 1438613109000000,
 			"settings":
 			{
-				"buffer_size": 3067,
+				"buffer_size": 3389,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "articles/css-flexbox-properties/article.md",
+			"settings":
+			{
+				"buffer_size": 5902,
 				"line_ending": "Unix"
 			}
 		}
@@ -78,9 +75,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 75.0,
+		"height": 96.0,
 		"selected_items":
 		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
 			[
 				"syntax:mar",
 				"Set Syntax: Markdown"
@@ -139,6 +140,7 @@
 	},
 	"file_history":
 	[
+		"/home/mb/www/blog/articles/extend-in-sass/article.md",
 		"/home/mb/www/blog/articles/testing-and-deploying-your-nodejs-app-with-travis-ci-and-heroku/article.md",
 		"/home/mb/www/blog/articles/foo/meta.json",
 		"/home/mb/www/blog/articles/foo/article.md",
@@ -254,6 +256,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"fig--",
 			"drag",
 			"function",
 			"console",
@@ -377,32 +380,6 @@
 				},
 				{
 					"buffer": 2,
-					"file": "articles/css-flexbox-properties/article.md",
-					"settings":
-					{
-						"buffer_size": 2967,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								660,
-								660
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "test.js",
 					"settings":
 					{
@@ -430,7 +407,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "app.js",
 					"settings":
 					{
@@ -458,19 +435,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "models/article.js",
 					"settings":
 					{
-						"buffer_size": 3067,
+						"buffer_size": 3389,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								200,
-								98
+								1070,
+								1070
 							]
 						],
 						"settings":
@@ -480,7 +457,33 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "articles/css-flexbox-properties/article.md",
+					"settings":
+					{
+						"buffer_size": 5902,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3278,
+								3264
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1451.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

@@ -1,5 +1,27 @@
 I've gotted so used to using CSS hacks like positioning and [floating](http://css.maxdesign.com.au/floatutorial/) over the years that it was at first hard for me to wrap my head around [CSS Flexboxes](https://drafts.csswg.org/css-flexbox-1). Here are the properties listed and explained along with some examples that helped me understand.<!--more-->
 
+<figure>
+  <figcaption>Flexboxes have two components: containers and flex items. To create a flexbox, the container should be given the `display: flex;` CSS property.</figcaption>
+
+```css
+.flex-container {
+  display: flex;
+}
+```
+```html
+<div class="flex-container">
+  <div>flex item</div>
+  <div>flex item</div>
+</div>
+```
+  <div class="figure">
+    <div class="figure--flexcontainer">
+      <div>flex item</div>
+      <div>flex item</div>
+    </div>
+  </div>
+</figure> 
+
 ## Container properties
 
 [`flex-flow`](https://drafts.csswg.org/css-flexbox-1/#flex-flow-property)
@@ -13,14 +35,31 @@ I've gotted so used to using CSS hacks like positioning and [floating](http://cs
 :  `nowrap | wrap | wrap-reverse`
 :  Controls whether the flex container is single-line or multi-line, and the direction of the [cross-axis](https://drafts.csswg.org/css-flexbox-1/#cross-axis), which determines the direction new lines are stacked in.
 
-
-
 `align-items`
 :  `flex-start | flex-end | center | baseline | stretch`
+:  Sets the default alignment for all of the flex container’s items. This value can be overwidden on each individual flex item with `align-self`.
 
 <figure>
   <img alt="align-items" height="377" src="/images/flex-align.svg" width="508">
   <figcaption>An illustration of the five align-items keywords and their effects on a flex container with four colored items.</figcaption>
+</figure>
+
+[`justify-content`](https://drafts.csswg.org/css-flexbox-1/#justify-content-property)
+:  `flex-start | flex-end | center | space-between | space-around`
+:  Horizontally aligns content __after__ any flexible lengths and any auto margins have been resolved; Helps distribute extra free space.
+
+<figure>
+  <img alt="justify-content" height="377" src="/images/justify-content.svg" width="508">
+  <figcaption>An illustration of the five justify-content keywords and their effects on a flex container with three colored items.</figcaption>
+</figure>
+
+[`align-content`](https://drafts.csswg.org/css-flexbox-1/#align-content-property)
+:  `flex-start | flex-end | center | space-between | space-around | stretch`
+:  Vertical (cross-axis) alignment for milti-line (more than one row of flex items) flex containers
+
+<figure>
+  <img alt="align-content" height="508" src="/images/align-content.svg" width="612">
+  <figcaption>An illustration of the align-content keywords and their effects on a multi-line flex container.</figcaption>
 </figure>
 
 ## Flex Item (children) properties
@@ -59,17 +98,11 @@ I've gotted so used to using CSS hacks like positioning and [floating](http://cs
 .flex-container {
   display: flex;
   flex-flow: row wrap;
-  width: 200px;
-  background-color: black;
-  padding: 0 0 5px 5px
 }
 
 .flex-container > * {
   flex: initial;
   min-width: 50px;
-  margin: 5px 5px 0 0;
-  background-color: pink;
-  color: black;
 }
 
 .flexlines--width-auto > * {
@@ -77,13 +110,13 @@ I've gotted so used to using CSS hacks like positioning and [floating](http://cs
 }
 ```
   <div class="figure">
-    <div class="fig--flex-container">
+    <div class="figure--flexcontainer">
       <div>foo</div>
       <div>bar</div>
       <div>fuuu</div>
       <div>baaa</div>
     </div>
-    <div class="fig--flex-container flexlines--width-auto">
+    <div class="figure--flexcontainer flexlines--width-auto">
       <div>foo</div>
       <div>bar</div>
       <div>fuuu</div>
@@ -112,16 +145,17 @@ I've gotted so used to using CSS hacks like positioning and [floating](http://cs
   <figcaption>A diagram showing the difference between "absolute" flex (starting from a basis of zero) and "relative" flex (starting from a basis of the item’s content size). The three items have flex factors of `1`, `1`, and `2`, respectively: notice that the item with a flex factor of `2` grows twice as fast as the others.</figcaption>
 </figure>
 
+`align-self`
+:  `auto | flex-start | flex-end | center | baseline | stretch`
+:  Individual flex item property that overrides the default value set by the flex container's `align-items` property.
+
 ## Aligning
 
-### Aligning with `auto` margins
+### Aligning with `auto` margins on flex items
 
 One use of auto margins in the main axis is to separate flex items into distinct "groups". The following example shows how to use this to reproduce a common UI pattern - a single bar of actions with some aligned on the left and others aligned on the right.
 
 <a class="jsbin-embed" href="http://jsbin.com/juxigi/embed?html,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.34.1"></script>
-
-### `justify-content`
-
 
 
 ## Examples
@@ -131,15 +165,16 @@ Using `order` to manipulate visual presentation while leaving source order intac
 <iframe width="100%" height="300" src="//jsfiddle.net/mrberti/c7t0fbb8/3/embedded/result,html,css" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 <style type="text/css">
-.fig--flex-container {
+.figure--flexcontainer {
   display: flex;
   flex-flow: row wrap;
   width: 200px;
   background-color: black;
+  margin: 5px 0 0;
   padding: 0 0 5px 5px
 }
 
-.fig--flex-container > * {
+.figure--flexcontainer > * {
   min-width: 50px;
   margin: 5px 5px 0 0;
   background-color: pink;
