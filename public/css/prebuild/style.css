@@ -422,14 +422,18 @@ th {
   font-weight: normal; }
 
 body {
-  font: normal 100% sans-serif; }
+  font: normal 100% sans-serif;
+  padding: 1em 0; }
+
+body > h1 {
+  margin: 1em; }
 
 article.blog > header, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
-  font-size: 3.6vw;
+  font-size: 4.3vw;
   line-height: 1.6; }
   @media (min-width: 330px) {
     article.blog > header, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
-      font-size: 3vw; } }
+      font-size: 3.3vw; } }
   @media (min-width: 640px) {
     article.blog > header, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
       font-size: 2vw; } }
@@ -455,16 +459,16 @@ article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, 
     article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote, article.blog > hr, article.blog > img {
       width: 50%; } }
 
-article.blog > figure.pop, article.blog > pre, article.blog > blockquote {
-  box-sizing: padding-box; }
+article.blog > .pop, article.blog > pre, article.blog > blockquote {
+  box-sizing: border-box; }
   @media (min-width: 330px) {
-    article.blog > figure.pop, article.blog > pre, article.blog > blockquote {
+    article.blog > .pop, article.blog > pre, article.blog > blockquote {
       width: 100%; } }
-  @media (min-width: 330px) {
-    article.blog > figure.pop, article.blog > pre, article.blog > blockquote {
+  @media (min-width: 640px) {
+    article.blog > .pop, article.blog > pre, article.blog > blockquote {
       width: 90%; } }
   @media (min-width: 1030px) {
-    article.blog > figure.pop, article.blog > pre, article.blog > blockquote {
+    article.blog > .pop, article.blog > pre, article.blog > blockquote {
       width: 60%; } }
 
 article.blog pre {
@@ -476,10 +480,37 @@ article.blog pre {
 
 article.blog blockquote {
   padding: 0 0 0 5%;
-  border-left: #4a4a4a 0.4em solid; }
+  position: relative; }
+  article.blog blockquote:before {
+    display: block;
+    position: absolute;
+    left: -0.065em;
+    top: -.2em;
+    content: "\201C";
+    font-size: 5em;
+    font-family: Georgia;
+    color: #7a7a7a;
+    line-height: 1; }
   article.blog blockquote p {
+    font-size: 1.4em;
+    font-style: italic;
+    font-family: serif;
+    letter-spacing: -.015em; }
+  article.blog blockquote footer {
+    color: #777;
     font-size: 1.2em;
-    font-style: italic; }
+    margin-top: -.5em; }
+    article.blog blockquote footer:before {
+      content: '\2014 \00A0'; }
+
+article.blog + nav {
+  margin: 2em 1em;
+  font-size: 2vw; }
+  article.blog + nav > a:before {
+    content: '\21B5 \00A0'; }
+
+.articles article + article {
+  margin-top: 2em; }
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
@@ -505,6 +536,16 @@ a {
 
 img {
   max-width: 100%; }
+
+figure > img {
+  display: block;
+  margin: auto; }
+
+figure figcaption {
+  margin: 1em auto;
+  text-align: center;
+  font-style: italic;
+  font-size: .9em; }
 
 dl dt, dl dd {
   margin-top: .4em; }

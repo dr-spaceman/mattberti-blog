@@ -155,7 +155,41 @@ I've gotted so used to using CSS hacks like positioning and [floating](http://cs
 
 One use of auto margins in the main axis is to separate flex items into distinct "groups". The following example shows how to use this to reproduce a common UI pattern - a single bar of actions with some aligned on the left and others aligned on the right.
 
-<a class="jsbin-embed" href="http://jsbin.com/juxigi/embed?html,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.34.1"></script>
+<figure class="pop">
+  <div class="figure">
+    <ul class="figure--flexcontainer-nav">
+      <li><a href=/about>About</a>
+      <li><a href=/projects>Projects</a>
+      <li><a href=/interact>Interact</a>
+      <li id="login"><a href=/login>Login</a>
+    </ul>
+  </div>
+  <div class="figure--codes">
+
+```html
+<nav>
+  <ul>
+    <li><a href=/about>About</a></li>
+    <li><a href=/projects>Projects</a></li>
+    <li><a href=/interact>Interact</a></li>
+    <li id="login"><a href=/login>Login</a></li>
+  </ul>
+</nav>
+```
+```css
+nav > ul {
+  display: flex;
+}
+nav > ul > li {
+  min-width: min-content;
+  /* Prevent items from getting too small for their content. */
+}
+nav > ul > #login {
+  margin-left: auto;
+}
+```
+  </div><!--/.figure--codes-->
+</figure>
 
 
 ## Examples
@@ -183,5 +217,27 @@ Using `order` to manipulate visual presentation while leaving source order intac
 
 .flexlines--width-auto > * {
   flex: auto;
+}
+
+ul.figure--flexcontainer-nav {
+  display: flex;
+  margin: 0;
+  padding: 5px;
+  list-style: none;
+  background-color: #C6E2C5;
+}
+ul.figure--flexcontainer-nav li {
+  min-width: min-content; /* Prevent items from getting too small for their content. */
+  margin:  5px;
+  padding: 5px 10px;
+  border: 1px solid #292929;
+}
+ul.figure--flexcontainer-nav li a {
+  color: #292929;
+  text-decoration: none;
+  font-weight: bold;
+}
+ul.figure--flexcontainer-nav li:last-child {
+  margin-left: auto;
 }
 </style>

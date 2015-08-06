@@ -82,7 +82,7 @@ You can also add `[ci skip]` to your commit message to skip testing & deployment
 
 When you've committed your git snapshot, push it to Github:
 
-> $ git push origin master
+  $ git push origin master
 
 Travis will then automatically run the test script and, if it passes...
 
