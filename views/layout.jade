@@ -2,8 +2,17 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/css/style.css')
-    meta(name="viewport", content="width=device-width; initial-scale=1.0")
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    // link(rel='stylesheet', href='/css/style.css')
+    style
+      include ../public/css/style.min.css
+    block head-addcss
+    script(src="//code.jquery.com/jquery-2.1.4.min.js")
+    // script(src="/js/main.js")
+    block head-addjs
     block head-add
   body
     block content
+    script
+      include ../public/js/main.js

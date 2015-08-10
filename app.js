@@ -1,5 +1,6 @@
 var path = require('path');
 
+var compression = require('compression');
 var express = require('express');
 var favicon = require('static-favicon');
 var logger = require('morgan');
@@ -19,7 +20,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(compression());
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: 86400000 })); // maxAge = one day
 
 app.use(routes);
 

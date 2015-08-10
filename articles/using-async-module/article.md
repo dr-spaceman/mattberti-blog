@@ -45,3 +45,32 @@ async.parallel({
   console.log("Async fin.", results);
 })
 ````
+
+Running middleware or API calls in turn can instead be run in parallel can speed up response time in a big way.^[[5 steps to making a Node.js frontend app 10x faster](https://engineering.gosquared.com/making-dashboard-faster)]
+
+So instead of:
+
+```js
+app.use(getUser);
+app.use(getSiteList);
+app.use(getCurrentSite);
+app.use(getSubscription);
+```
+
+... we could do something like this:
+
+```js
+function parallel(middlewares) {
+  return function (req, res, next) {
+    async.each(middlewares, function (mw, cb) {
+      mw(req, res, cb);
+    }, next);
+  };
+}
+
+app.use(parallel([
+  getUser,
+  getSiteList,
+  getCurrentSite,
+  getSubscription
+]));

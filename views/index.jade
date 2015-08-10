@@ -4,8 +4,8 @@ block content
   h1= title
   .articles
     each article, index in articles
-      article.blog
+      article
         header
           .article-meta= article.datePrint
-          h2: a(href="/blog/" + article.key)!= article.title
+          h2: a(href="/blog/" + article.key title=article.title)!= article.title
         != article.leadin

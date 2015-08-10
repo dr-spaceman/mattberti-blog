@@ -22,6 +22,22 @@ test('Get article `~test` and manipulate/parse it', function (t) {
   });
 });
 
+test('Get article `~test-2` and perform tests', function (t) {
+  Article.get("~test-2", function (err, article) {
+    t.error(err, "Article#get no error");
+    t.ok(article, "article get");
+
+    console.log(article);
+    console.log(article.leadin.length);
+
+    //proper leadin -- blank but exists
+    t.ok(article.leadin === "", "has leadin");
+    t.ok(article.leadin.length === 0, "leadin is blank");
+
+    t.end();
+  });
+});
+
 test('Get all articles', function (t) {
   Article.getAll(function (err, articles) {
     t.error(err, "Article#getAll no error");

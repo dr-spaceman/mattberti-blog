@@ -64,6 +64,7 @@ Article.get = function (key, fn) {
       if (err) return fn(err);
       
       article.body = content;
+      article.leadin = null;
       
       // Find the stub seperator <!-- more[-custom] -->, if there is one
       var re = /<!--\s*more[\-\:\| ]*(.*)\s*-->/;
@@ -71,8 +72,11 @@ Article.get = function (key, fn) {
       reOperation = re.exec(content);
       
       if (reOperation !== null) {
-        article.leadin = article.body.substr(0, reOperation.index);
+        article.leadin = article.body.substr(0, reOperation.index).trim();
         article.leadinLinkWords = reOperation[1] ? reOperation[1].trim() : null;
+        debug("reOperation", reOperation.index, article.leadinLinkWords);
+      } else {
+        debug("reOperation NONE", article.leadin);
       }
 
       // Check for custom stylesheet

@@ -31,32 +31,36 @@ body > h1 {
   margin: 1em;
 }
 
-article.blog {
+article {
+  counter-reset: article;
+  
+  // font size
+  font-size: 4.3vw;
+  
+  @include breakpoint(small) {
+    font-size: 3.3vw;
+  }
+
+  @include breakpoint(medium) {
+    font-size: 2vw;
+  }
+
+  @include breakpoint(large) {
+    font-size: 1.5vw;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
   & > {
-    // Font sizes
-    .article-meta, footer, section, p, pre, figure, ul, ol, dl, blockquote {
-      font-size: 4.3vw;
-      line-height: 1.6;
-
-      @include breakpoint(small) {
-        font-size: 3.3vw;
-      }
-
-      @include breakpoint(medium) {
-        font-size: 2vw;
-      }
-
-      @include breakpoint(large) {
-        font-size: 1.5vw;
-      }
-    }
-
     // Widths & margins
-    .article-meta, footer, section, h2, h3, h4, h5, h6, 
+    .width-flush, header, footer, section, h2, h3, h4, h5, h6, 
     p, pre, figure, ul, ol, dl, blockquote, hr, img {
       width: 98%;
       margin-right: auto;
       margin-left: auto;
+      line-height: 1.6;
 
       @include breakpoint(small) {
         width: 90%;
@@ -87,12 +91,50 @@ article.blog {
         width: 60%;
       }
     }
-  }
 
-  h1 {
-    text-align: center;
-    margin-left: 1em;
-    margin-right: 1em;
+    // Other immediate (unnested) child elements of the article
+    figure {
+      figcaption {
+        font-size:.9em;
+
+        &::before {
+          counter-increment: article;
+          content: "Figure " counter(article, decimal-leading-zero) ". ";
+          font-weight: bold;
+        }
+      }
+    }
+
+    blockquote {
+      padding: 0 0 0 5%;
+      position: relative;
+      &:before {
+        display: block;
+        position: absolute;
+        left: -0.065em;
+        top: -.2em;
+        content: "\201C";
+        font-size: 5em;
+        font-family: Georgia;
+        color: #7a7a7a;
+        line-height: 1;
+      }
+      p {
+        font-size: 1.4em;
+        font-style: italic;
+        font-family: serif;
+        letter-spacing: -.015em;
+      }
+      footer {
+        color: #777;
+        font-size: 1.2em;
+        margin-top: -.5em;
+        
+        &:before {
+          content: '\2014 \00A0';
+        }
+      }
+    }
   }
 
   pre {
@@ -100,39 +142,10 @@ article.blog {
     overflow: auto;
     background: #f7fafb;
     counter-reset: linenumbers;
-      line-height: 1;
+    line-height: 1;
+    font-size: .85em;
   }
 
-  blockquote {
-    padding: 0 0 0 5%;
-    position: relative;
-    &:before {
-      display: block;
-      position: absolute;
-      left: -0.065em;
-      top: -.2em;
-      content: "\201C";
-      font-size: 5em;
-      font-family: Georgia;
-      color: #7a7a7a;
-      line-height: 1;
-    }
-    p {
-      font-size: 1.4em;
-      font-style: italic;
-      font-family: serif;
-      letter-spacing: -.015em;
-    }
-    footer {
-      color: #777;
-      font-size: 1.2em;
-      margin-top: -.5em;
-      
-      &:before {
-        content: '\2014 \00A0';
-      }
-    }
-  }
 
   & + nav {
     margin: 2em 1em;
@@ -166,14 +179,17 @@ h1,h2,h3,h4,h5,h6 {
 
 h1 {
   font-size: 7vw;
+  a {
+    text-decoration: none;
+  }
 }
 
 h2 {
-  font-size: 6vw;
+  font-size: 3em;
 }
 
 h3 {
-  font-size: 5.5vw;
+  font-size: 2.5em;
 }
 
 h4 {
@@ -190,7 +206,7 @@ h6 {
 
 a {
   color: #0037ff;
-  transition: color ease .3s;
+  transition: color .3s ease;
 
   &:hover {
     color: #00b7ff;
@@ -204,13 +220,24 @@ img {
 figure {
   > img {
     display: block;
-    margin:auto;
+    margin-right: auto;
+    margin-left: auto;
   }
   figcaption {
     margin: 1em auto;
     text-align: center;
     font-style: italic;
     font-size: .9em;
+  }
+  &.flex {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    & > * {
+      flex: auto;
+      min-width: 30%;
+    }
   }
 }
 

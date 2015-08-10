@@ -2,7 +2,7 @@ I've gotten so used to using CSS hacks like positioning and [floating](http://cs
 
 <figure class="pop">
   <figcaption>Flexboxes have two components: containers and flex items. To create a flexbox, the container should be given the `display: flex;` CSS property.</figcaption>
-  <div class="demo-cfp--flexcontainer">
+  <div class="demo-cfp--flexcontainer demo-cfp--model">
 
 ```css
 .flex-container {
@@ -15,12 +15,8 @@ I've gotten so used to using CSS hacks like positioning and [floating](http://cs
   <div>flex item</div>
 </div>
 ```
-<div class="figure demo-cfp--flexcontainer-styled">
-  <div>flex item</div>
-  <div>flex item</div>
-</div>
   </div>
-</figure> 
+</figure>
 
 ## Container properties
 
@@ -40,7 +36,7 @@ I've gotten so used to using CSS hacks like positioning and [floating](http://cs
 :  Sets the default alignment for all of the flex container’s items. This value can be overwidden on each individual flex item with `align-self`.
 
 <figure>
-  <img alt="align-items" height="377" src="/images/flex-align.svg" width="508">
+  <img alt="align-items" src="/images/flex-align.svg">
   <figcaption>An illustration of the five align-items keywords and their effects on a flex container with four colored items.</figcaption>
 </figure>
 
@@ -49,7 +45,7 @@ I've gotten so used to using CSS hacks like positioning and [floating](http://cs
 :  Horizontally aligns content __after__ any flexible lengths and any auto margins have been resolved; Helps distribute extra free space.
 
 <figure>
-  <img alt="justify-content" src="/images/justify-content.svg" width="504" height="270">
+  <img alt="justify-content" src="/images/justify-content.svg">
   <figcaption>An illustration of the five justify-content keywords and their effects on a flex container with three colored items.</figcaption>
 </figure>
 
@@ -58,7 +54,7 @@ I've gotten so used to using CSS hacks like positioning and [floating](http://cs
 :  Vertical (cross-axis) alignment for milti-line (more than one row of flex items) flex containers
 
 <figure>
-  <img alt="align-content" height="508" src="/images/align-content.svg" width="612">
+  <img alt="align-content" src="/images/align-content.svg">
   <figcaption>An illustration of the align-content keywords and their effects on a multi-line flex container.</figcaption>
 </figure>
 
@@ -80,13 +76,13 @@ I've gotten so used to using CSS hacks like positioning and [floating](http://cs
 <figure class="pop">
   <figcaption>Milti-line flex containers with `flex: initial` and `flex: auto`:</figcaption>
   <div class="demo-cfp--figure">
-    <div class="demo-cfp--flexcontainer-styled">
+    <div class="demo-cfp--flexcontainer demo-cfp--styled w-small">
       <div>foo</div>
       <div>bar</div>
       <div>fuuu</div>
       <div>baaa</div>
     </div>
-    <div class="demo-cfp--flexcontainer-styled demo-cfp--flexlines-width-auto">
+    <div class="demo-cfp--flexcontainer demo-cfp--styled demo-cfp--flexlines-width-auto w-small">
       <div>foo</div>
       <div>bar</div>
       <div>fuuu</div>
@@ -145,7 +141,7 @@ I've gotten so used to using CSS hacks like positioning and [floating](http://cs
 :   The initial main size of the flex item.
 
 <figure>
-  <img height="240" src="/images/rel-vs-abs-flex.svg" width="504">
+  <img src="/images/rel-vs-abs-flex.svg">
   <figcaption>A diagram showing the difference between "absolute" flex (starting from a basis of zero) and "relative" flex (starting from a basis of the item’s content size). The three items have flex factors of `1`, `1`, and `2`, respectively: notice that the item with a flex factor of `2` grows twice as fast as the others.</figcaption>
 </figure>
 
@@ -161,14 +157,14 @@ One use of auto margins in the main axis is to separate flex items into distinct
 
 <figure class="pop">
   <div class="demo-cfp--figure" style="width:100%;">
-    <ul class="demo-cfp--flexcontainer-styled-nav">
+    <ul class="demo-cfp--flexcontainer demo-cfp--nav-styled">
       <li><a href=/about>About</a>
       <li><a href=/projects>Projects</a>
       <li><a href=/interact>Interact</a>
       <li id="login"><a href=/login>Login</a>
     </ul>
   </div>
-  <div class="demo-cfp--styled-codes">
+  <div>
 
 ```html
 <nav>
@@ -198,9 +194,40 @@ nav > ul > #login {
 
 ## Examples
 
-Using `order` to manipulate visual presentation while leaving source order intact. The Article is given a `min-width` value while the side content, Nav and Aside, are fixed. A media query arranges content into columns on small screens.
+<figure>
+  <figcaption>Using `order` to manipulate visual presentation while leaving source order intact. The Article is given a `min-width` value while the side content, Nav and Aside, are fixed. A media query arranges content into columns on small screens.</figcaption>
+  <iframe width="100%" height="300" src="//jsfiddle.net/mrberti/c7t0fbb8/3/embedded/result,html,css" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</figure>
 
-<iframe width="100%" height="300" src="//jsfiddle.net/mrberti/c7t0fbb8/3/embedded/result,html,css" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<figure>
+  <figcaption>A right-aligned navigation that centers and then wraps into rows on medium and smaller screens (via <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS-Tricks: A Complete Guide to Flexboxes</a> which is much more complete than this guide):</figcaption>
+
+```css
+/* Large */
+.navigation {
+  display: flex;
+  flex-flow: row wrap;
+  /* This aligns items to the end line on main-axis */
+  justify-content: flex-end;
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+  .navigation {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    justify-content: space-around;
+  }
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .navigation {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+```</figure>
+
 
 ## Additional resources
 

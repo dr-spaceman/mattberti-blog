@@ -1,3 +1,9 @@
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -425,91 +431,91 @@ body {
 body > h1 {
   margin: 1em; }
 
-article.blog > .article-meta, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
-  font-size: 4.3vw;
-  line-height: 1.6; }
+article {
+  counter-reset: article;
+  font-size: 4.3vw; }
   @media (min-width: 330px) {
-    article.blog > .article-meta, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
+    article {
       font-size: 3.3vw; } }
   @media (min-width: 640px) {
-    article.blog > .article-meta, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
+    article {
       font-size: 2vw; } }
   @media (min-width: 1030px) {
-    article.blog > .article-meta, article.blog > footer, article.blog > section, article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote {
+    article {
       font-size: 1.5vw; } }
-
-article.blog > .article-meta, article.blog > footer, article.blog > section, article.blog > h2, article.blog > h3, article.blog > h4, article.blog > h5, article.blog > h6,
-article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote, article.blog > hr, article.blog > img {
-  width: 98%;
-  margin-right: auto;
-  margin-left: auto; }
-  @media (min-width: 330px) {
-    article.blog > .article-meta, article.blog > footer, article.blog > section, article.blog > h2, article.blog > h3, article.blog > h4, article.blog > h5, article.blog > h6,
-    article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote, article.blog > hr, article.blog > img {
-      width: 90%; } }
-  @media (min-width: 640px) {
-    article.blog > .article-meta, article.blog > footer, article.blog > section, article.blog > h2, article.blog > h3, article.blog > h4, article.blog > h5, article.blog > h6,
-    article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote, article.blog > hr, article.blog > img {
-      width: 80%; } }
-  @media (min-width: 1030px) {
-    article.blog > .article-meta, article.blog > footer, article.blog > section, article.blog > h2, article.blog > h3, article.blog > h4, article.blog > h5, article.blog > h6,
-    article.blog > p, article.blog > pre, article.blog > figure, article.blog > ul, article.blog > ol, article.blog > dl, article.blog > blockquote, article.blog > hr, article.blog > img {
-      width: 50%; } }
-
-article.blog > .pop, article.blog > pre, article.blog > blockquote {
-  box-sizing: border-box; }
-  @media (min-width: 330px) {
-    article.blog > .pop, article.blog > pre, article.blog > blockquote {
-      width: 100%; } }
-  @media (min-width: 640px) {
-    article.blog > .pop, article.blog > pre, article.blog > blockquote {
-      width: 90%; } }
-  @media (min-width: 1030px) {
-    article.blog > .pop, article.blog > pre, article.blog > blockquote {
-      width: 60%; } }
-
-article.blog h1 {
-  text-align: center;
-  margin-left: 1em;
-  margin-right: 1em; }
-
-article.blog pre {
-  padding: 1em 5%;
-  overflow: auto;
-  background: #f7fafb;
-  counter-reset: linenumbers;
-  line-height: 1; }
-
-article.blog blockquote {
-  padding: 0 0 0 5%;
-  position: relative; }
-  article.blog blockquote:before {
-    display: block;
-    position: absolute;
-    left: -0.065em;
-    top: -.2em;
-    content: "\201C";
-    font-size: 5em;
-    font-family: Georgia;
-    color: #7a7a7a;
-    line-height: 1; }
-  article.blog blockquote p {
-    font-size: 1.4em;
-    font-style: italic;
-    font-family: serif;
-    letter-spacing: -.015em; }
-  article.blog blockquote footer {
-    color: #777;
-    font-size: 1.2em;
-    margin-top: -.5em; }
-    article.blog blockquote footer:before {
-      content: '\2014 \00A0'; }
-
-article.blog + nav {
-  margin: 2em 1em;
-  font-size: 2vw; }
-  article.blog + nav > a:before {
-    content: '\21B5 \00A0'; }
+  article h1 {
+    text-align: center; }
+  article > .width-flush, article > header, article > footer, article > section, article > h2, article > h3, article > h4, article > h5, article > h6,
+  article > p, article > pre, article > figure, article > ul, article > ol, article > dl, article > blockquote, article > hr, article > img {
+    width: 98%;
+    margin-right: auto;
+    margin-left: auto;
+    line-height: 1.6; }
+    @media (min-width: 330px) {
+      article > .width-flush, article > header, article > footer, article > section, article > h2, article > h3, article > h4, article > h5, article > h6,
+      article > p, article > pre, article > figure, article > ul, article > ol, article > dl, article > blockquote, article > hr, article > img {
+        width: 90%; } }
+    @media (min-width: 640px) {
+      article > .width-flush, article > header, article > footer, article > section, article > h2, article > h3, article > h4, article > h5, article > h6,
+      article > p, article > pre, article > figure, article > ul, article > ol, article > dl, article > blockquote, article > hr, article > img {
+        width: 80%; } }
+    @media (min-width: 1030px) {
+      article > .width-flush, article > header, article > footer, article > section, article > h2, article > h3, article > h4, article > h5, article > h6,
+      article > p, article > pre, article > figure, article > ul, article > ol, article > dl, article > blockquote, article > hr, article > img {
+        width: 50%; } }
+  article > .pop, article > pre, article > blockquote {
+    box-sizing: border-box; }
+    @media (min-width: 330px) {
+      article > .pop, article > pre, article > blockquote {
+        width: 100%; } }
+    @media (min-width: 640px) {
+      article > .pop, article > pre, article > blockquote {
+        width: 90%; } }
+    @media (min-width: 1030px) {
+      article > .pop, article > pre, article > blockquote {
+        width: 60%; } }
+  article > figure figcaption {
+    font-size: .9em; }
+    article > figure figcaption::before {
+      counter-increment: article;
+      content: "Figure " counter(article, decimal-leading-zero) ". ";
+      font-weight: bold; }
+  article > blockquote {
+    padding: 0 0 0 5%;
+    position: relative; }
+    article > blockquote:before {
+      display: block;
+      position: absolute;
+      left: -0.065em;
+      top: -.2em;
+      content: "\201C";
+      font-size: 5em;
+      font-family: Georgia;
+      color: #7a7a7a;
+      line-height: 1; }
+    article > blockquote p {
+      font-size: 1.4em;
+      font-style: italic;
+      font-family: serif;
+      letter-spacing: -.015em; }
+    article > blockquote footer {
+      color: #777;
+      font-size: 1.2em;
+      margin-top: -.5em; }
+      article > blockquote footer:before {
+        content: '\2014 \00A0'; }
+  article pre {
+    padding: 1em 5%;
+    overflow: auto;
+    background: #f7fafb;
+    counter-reset: linenumbers;
+    line-height: 1;
+    font-size: .85em; }
+  article + nav {
+    margin: 2em 1em;
+    font-size: 2vw; }
+    article + nav > a:before {
+      content: '\21B5 \00A0'; }
 
 .articles article + article {
   margin-top: 2em; }
@@ -526,12 +532,14 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 7vw; }
+  h1 a {
+    text-decoration: none; }
 
 h2 {
-  font-size: 6vw; }
+  font-size: 3em; }
 
 h3 {
-  font-size: 5.5vw; }
+  font-size: 2.5em; }
 
 h4 {
   font-size: 5.2vw; }
@@ -544,8 +552,8 @@ h6 {
 
 a {
   color: #0037ff;
-  -webkit-transition: color ease 0.3s;
-          transition: color ease 0.3s; }
+  -webkit-transition: color 0.3s ease;
+          transition: color 0.3s ease; }
   a:hover {
     color: #00b7ff; }
 
@@ -554,13 +562,33 @@ img {
 
 figure > img {
   display: block;
-  margin: auto; }
+  margin-right: auto;
+  margin-left: auto; }
 
 figure figcaption {
   margin: 1em auto;
   text-align: center;
   font-style: italic;
   font-size: .9em; }
+
+figure.flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+  figure.flex > * {
+    -webkit-box-flex: 1;
+    -webkit-flex: auto;
+        -ms-flex: auto;
+            flex: auto;
+    min-width: 30%; }
 
 dl dt, dl dd {
   margin-top: .4em; }

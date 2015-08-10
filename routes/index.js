@@ -44,10 +44,10 @@ router.get('/', function (req, res, next) {
 		if (err) return next(err);
 
 		articles.forEach(function(article){
-			if (article.leadin) {
-				article.leadin += ' <a href="/blog/' + article.key + '" title="' + article.title +'" class="more">' + (article.leadinLinkWords ? article.leadinLinkWords + ' ' : '') + '&rarr;</a>';
-			} else {
+			if (article.leadin === null) {
 				article.leadin = article.body;
+			} else if (article.leadin !== "") {
+				article.leadin += ' <a href="/blog/' + article.key + '" title="' + article.title +'" class="more">' + (article.leadinLinkWords ? article.leadinLinkWords + ' ' : '') + '&rarr;</a>';
 			}
 			article.leadin = Article.toHTML(article.leadin);
 		});
