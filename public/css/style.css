@@ -425,61 +425,61 @@ th {
   font-weight: normal; }
 
 body {
+  padding: 1em 0;
   font: normal 100% sans-serif;
-  padding: 1em 0; }
+  font-size: 4.3vw; }
+  @media (min-width: 330px) {
+    body {
+      font-size: 3.3vw; } }
+  @media (min-width: 640px) {
+    body {
+      font-size: 2vw; } }
+  @media (min-width: 1030px) {
+    body {
+      font-size: 1.5vw; } }
 
 body > h1 {
-  margin: 1em; }
+  margin: 1em 0;
+  text-align: center; }
 
 article {
   counter-reset: article;
-  font-size: 4.3vw; }
-  @media (min-width: 330px) {
-    article {
-      font-size: 3.3vw; } }
-  @media (min-width: 640px) {
-    article {
-      font-size: 2vw; } }
-  @media (min-width: 1030px) {
-    article {
-      font-size: 1.5vw; } }
-  article h1 {
-    text-align: center; }
+  line-height: 1.6; }
   article > .width-flush, article > header, article > footer, article > section, article > h2, article > h3, article > h4, article > h5, article > h6,
-  article > p, article > pre, article > figure, article > ul, article > ol, article > dl, article > blockquote, article > hr, article > img {
+  article > p, article > pre, article > figure, article > ul, article > ol, article > dl, article > blockquote, article > hr {
     width: 98%;
     margin-right: auto;
-    margin-left: auto;
-    line-height: 1.6; }
+    margin-left: auto; }
     @media (min-width: 330px) {
       article > .width-flush, article > header, article > footer, article > section, article > h2, article > h3, article > h4, article > h5, article > h6,
-      article > p, article > pre, article > figure, article > ul, article > ol, article > dl, article > blockquote, article > hr, article > img {
+      article > p, article > pre, article > figure, article > ul, article > ol, article > dl, article > blockquote, article > hr {
         width: 90%; } }
     @media (min-width: 640px) {
       article > .width-flush, article > header, article > footer, article > section, article > h2, article > h3, article > h4, article > h5, article > h6,
-      article > p, article > pre, article > figure, article > ul, article > ol, article > dl, article > blockquote, article > hr, article > img {
+      article > p, article > pre, article > figure, article > ul, article > ol, article > dl, article > blockquote, article > hr {
         width: 80%; } }
     @media (min-width: 1030px) {
       article > .width-flush, article > header, article > footer, article > section, article > h2, article > h3, article > h4, article > h5, article > h6,
-      article > p, article > pre, article > figure, article > ul, article > ol, article > dl, article > blockquote, article > hr, article > img {
+      article > p, article > pre, article > figure, article > ul, article > ol, article > dl, article > blockquote, article > hr {
         width: 50%; } }
-  article > .pop, article > pre, article > blockquote {
-    box-sizing: border-box; }
-    @media (min-width: 330px) {
-      article > .pop, article > pre, article > blockquote {
-        width: 100%; } }
-    @media (min-width: 640px) {
-      article > .pop, article > pre, article > blockquote {
-        width: 90%; } }
-    @media (min-width: 1030px) {
-      article > .pop, article > pre, article > blockquote {
-        width: 60%; } }
-  article > figure figcaption {
-    font-size: .9em; }
-    article > figure figcaption::before {
-      counter-increment: article;
-      content: "Figure " counter(article, decimal-leading-zero) ". ";
-      font-weight: bold; }
+  @media (min-width: 330px) {
+    article > .pop, article > pre, article > blockquote {
+      width: 100%; } }
+  @media (min-width: 640px) {
+    article > .pop, article > pre, article > blockquote {
+      width: 90%; } }
+  @media (min-width: 1030px) {
+    article > .pop, article > pre, article > blockquote {
+      width: 60%; } }
+  article > img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1em; }
+  article > figure figcaption::before {
+    counter-increment: article;
+    content: "Figure " counter(article, decimal-leading-zero) ". ";
+    font-weight: bold; }
   article > blockquote {
     padding: 0 0 0 5%;
     position: relative; }
@@ -509,11 +509,9 @@ article {
     overflow: auto;
     background: #f7fafb;
     counter-reset: linenumbers;
-    line-height: 1;
-    font-size: .85em; }
+    line-height: 1; }
   article + nav {
-    margin: 2em 1em;
-    font-size: 2vw; }
+    margin: 2em 1em; }
     article + nav > a:before {
       content: '\21B5 \00A0'; }
 
@@ -531,24 +529,24 @@ h1, h2, h3, h4, h5, h6 {
     color: black; }
 
 h1 {
-  font-size: 7vw; }
+  font-size: 2.1em; }
   h1 a {
     text-decoration: none; }
 
 h2 {
-  font-size: 3em; }
+  font-size: 1.9em; }
 
 h3 {
-  font-size: 2.5em; }
+  font-size: 1.7em; }
 
 h4 {
-  font-size: 5.2vw; }
+  font-size: 1.5em; }
 
 h5 {
-  font-size: 4.9vw; }
+  font-size: 1.3em; }
 
 h6 {
-  font-size: 4.6vw; }
+  font-size: 1.1em; }
 
 a {
   color: #0037ff;
@@ -560,7 +558,12 @@ a {
 img {
   max-width: 100%; }
 
-figure > img {
+ul, ol {
+  padding-left: 1.5em; }
+  ul ul, ul ol, ol ul, ol ol {
+    padding-left: 3em; }
+
+figure > img, figure .figure {
   display: block;
   margin-right: auto;
   margin-left: auto; }
@@ -571,24 +574,32 @@ figure figcaption {
   font-style: italic;
   font-size: .9em; }
 
-figure.flex {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
-  figure.flex > * {
-    -webkit-box-flex: 1;
-    -webkit-flex: auto;
-        -ms-flex: auto;
-            flex: auto;
-    min-width: 30%; }
+@media (min-width: 330px) {
+  figure.flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+    figure.flex > .figure, figure.flex pre {
+      -webkit-box-flex: initial;
+      -webkit-flex: initial;
+          -ms-flex: initial;
+              flex: initial;
+      margin-left: auto; }
+    figure.flex > figcaption {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      text-align: right;
+      padding-right: 1em; } }
 
 dl dt, dl dd {
   margin-top: .4em; }
@@ -602,7 +613,7 @@ code, tt {
 pre code, tt {
   font-size: .85em;
   white-space: pre;
-  line-height: 1;
+  line-height: 1.2;
   background: transparent;
   border: none;
   padding: .1em; }

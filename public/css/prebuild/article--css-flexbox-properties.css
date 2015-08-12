@@ -1,3 +1,7 @@
+h1 {
+  font-size: 3.6em;
+  width: min-content; }
+
 .demo-cfp--flexcontainer {
   display: flex; }
   .demo-cfp--flexcontainer > * {
@@ -7,16 +11,18 @@
   .demo-cfp--flexcontainer.demo-cfp--styled {
     background-color: black;
     margin: 0;
-    padding: 0 0 0.3em 0.3em; }
+    padding: 0 0 5px 5px; }
     .demo-cfp--flexcontainer.demo-cfp--styled > * {
-      margin: 0.3em 0.3em 0 0;
+      margin: 5px 5px 0 0;
       background-color: pink;
       color: black;
-      padding: 0 0.1rem; }
+      padding: 0 5px; }
   .demo-cfp--flexcontainer.w-small {
-    width: 10em; }
+    width: 15em; }
     .demo-cfp--flexcontainer.w-small > * {
-      min-width: 3em; }
+      min-width: 4em; }
+  .demo-cfp--flexcontainer.demo-cfp--flexcontainer-wrap {
+    flex-wrap: wrap; }
 
 .demo-cfp--flexlines-width-auto > * {
   flex: auto; }
@@ -36,7 +42,7 @@
     font-size: .7em;
     color: #C6E2C5; }
     .demo-cfp--nav-styled > * a {
-      color: #292929;
+      color: #C6E2C5;
       text-decoration: none;
       font-weight: bold; }
   .demo-cfp--nav-styled > :last-child {
@@ -47,5 +53,5 @@
 
 .demo-cfp--figure {
   background-color: black;
-  margin: 0 auto;
+  margin: .5em auto;
   width: max-content; }

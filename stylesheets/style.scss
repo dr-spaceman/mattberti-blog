@@ -23,44 +23,38 @@
 // }
 
 body {
-  font: normal 100% sans-serif;
   padding: 1em 0;
+  font: normal 100% sans-serif;
+
+  // font size
+  font-size: 4.3vw;
+  @include breakpoint(small) {
+    font-size: 3.3vw;
+  }
+  @include breakpoint(medium) {
+    font-size: 2vw;
+  }
+  @include breakpoint(large) {
+    font-size: 1.5vw;
+  }
 }
 
 body > h1 {
-  margin: 1em;
+  margin: 1em 0;
+  text-align: center;
 }
 
 article {
   counter-reset: article;
-  
-  // font size
-  font-size: 4.3vw;
-  
-  @include breakpoint(small) {
-    font-size: 3.3vw;
-  }
-
-  @include breakpoint(medium) {
-    font-size: 2vw;
-  }
-
-  @include breakpoint(large) {
-    font-size: 1.5vw;
-  }
-
-  h1 {
-    text-align: center;
-  }
+  line-height: 1.6;
 
   & > {
     // Widths & margins
     .width-flush, header, footer, section, h2, h3, h4, h5, h6, 
-    p, pre, figure, ul, ol, dl, blockquote, hr, img {
+    p, pre, figure, ul, ol, dl, blockquote, hr {
       width: 98%;
       margin-right: auto;
       margin-left: auto;
-      line-height: 1.6;
 
       @include breakpoint(small) {
         width: 90%;
@@ -77,8 +71,6 @@ article {
 
     // Popout items
     .pop, pre, blockquote {
-      box-sizing:  border-box;
-
       @include breakpoint(small) {
         width: 100%;
       }
@@ -93,10 +85,15 @@ article {
     }
 
     // Other immediate (unnested) child elements of the article
+    img {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+      margin-top: 1em;
+    }
+
     figure {
       figcaption {
-        font-size:.9em;
-
         &::before {
           counter-increment: article;
           content: "Figure " counter(article, decimal-leading-zero) ". ";
@@ -143,13 +140,11 @@ article {
     background: #f7fafb;
     counter-reset: linenumbers;
     line-height: 1;
-    font-size: .85em;
   }
 
 
   & + nav {
     margin: 2em 1em;
-    font-size: 2vw;
     > a {
       &:before {
         content: '\21B5 \00A0';
@@ -178,30 +173,30 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h1 {
-  font-size: 7vw;
+  font-size: 2.1em;
+
   a {
     text-decoration: none;
   }
 }
 
 h2 {
-  font-size: 3em;
+  font-size: 1.9em;
 }
 
 h3 {
-  font-size: 2.5em;
-}
+  font-size: 1.7em;}
 
 h4 {
-  font-size: 5.2vw;
+  font-size: 1.5em;
 }
 
 h5 {
-  font-size: 4.9vw;
+  font-size: 1.3em;
 }
 
 h6 {
-  font-size: 4.6vw;
+  font-size: 1.1em;
 }
 
 a {
@@ -217,8 +212,16 @@ img {
   max-width: 100%;
 }
 
+ul, ol {
+  padding-left: 1.5em;
+
+  & ul, & ol {
+    padding-left: 3em;
+  }
+}
+
 figure {
-  > img {
+  > img, .figure {
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -229,14 +232,21 @@ figure {
     font-style: italic;
     font-size: .9em;
   }
-  &.flex {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  @include breakpoint(small) {
+    &.flex {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
 
-    & > * {
-      flex: auto;
-      min-width: 30%;
+      & > .figure, pre {
+        flex: initial;
+        margin-left: auto;
+      }
+      & > figcaption {
+        flex: 1;
+        text-align: right;
+        padding-right: 1em;
+      }
     }
   }
 }
@@ -255,7 +265,7 @@ code, tt {
 pre code, tt {
   font-size: .85em;
   white-space: pre;
-  line-height: 1;
+  line-height: 1.2;
   background: transparent;
   border: none;
   padding: .1em;

@@ -24,27 +24,6 @@ Here's my package file for this site:
   },
   "engines": {
     "node": "0.12.x"
-  },
-  "dependencies": {
-    "async": "^0.9.0",
-    "body-parser": "~1.0.0",
-    "cookie-parser": "~1.0.1",
-    "debug": "~0.7.4",
-    "express": "~4.2.0",
-    "highlight.js": "^8.1.0",
-    "jade": "~1.3.0",
-    "marked": "^0.3.2",
-    "moment": "^2.7.0",
-    "morgan": "~1.0.0",
-    "static-favicon": "~1.0.0",
-    "tape": "^4.0.1"
-  },
-  "devDependencies": {
-    "autoprefixer": "^5.2.0",
-    "fs-extra": "^0.22.1",
-    "node-sass": "^3.2.0",
-    "nodemon": "^1.4.0",
-    "tap-spec": "^4.0.2"
   }
 }
 ```
@@ -82,14 +61,16 @@ You can also add `[ci skip]` to your commit message to skip testing & deployment
 
 When you've committed your git snapshot, push it to Github:
 
-  $ git push origin master
+```bash
+$ git push origin master
+```
 
 Travis will then automatically run the test script and, if it passes...
 
-![DUANG~](http://i.giphy.com/xTiTnJl3DaHGWMcwJW.gif "DUANG~")
+<img src="http://i.giphy.com/xTiTnJl3DaHGWMcwJW.gif" alt="DUANG~" title="DUANG~" width="326">
 
 ...your app will be deployed to Heroku!
 
-![DUANGING](http://i.giphy.com/3o85xrj6vADDjr5SYU.gif "Duanging")
+<img src="http://i.giphy.com/3o85xrj6vADDjr5SYU.gif" alt="DUANGING" title="Duanging" width="326">
 
 You can check your app's test results on Travis's web app.

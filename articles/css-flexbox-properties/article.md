@@ -1,8 +1,7 @@
-I've gotten so used to using CSS hacks like positioning and [floating](http://css.maxdesign.com.au/floatutorial/) over the years that it was at first hard for me to wrap my head around [CSS Flexboxes](https://drafts.csswg.org/css-flexbox-1). Here are my notes -- the properties listed and explained along with some examples that helped me understand.<!--more-->
+I've gotten so used to using CSS hacks like positioning and [floating](http://css.maxdesign.com.au/floatutorial/) and [clearfixing](http://nicolasgallagher.com/micro-clearfix-hack/) over the years that it was at first hard for me to wrap my head around the magnificent simplicity of [CSS Flexboxes](https://drafts.csswg.org/css-flexbox-1). Here are my notes -- the properties listed and explained along with some examples that helped me understand.<!--more-->
 
-<figure class="pop">
-  <figcaption>Flexboxes have two components: containers and flex items. To create a flexbox, the container should be given the `display: flex;` CSS property.</figcaption>
-  <div class="demo-cfp--flexcontainer demo-cfp--model">
+<figure class="pop flex">
+  <figcaption>Flexboxes have two components: containers and flex items. To create a flexbox, the container should be given the `display: flex;` CSS property. To display the same figure with inner floating elements, you would need a clearfix.</figcaption>
 
 ```css
 .flex-container {
@@ -15,7 +14,6 @@ I've gotten so used to using CSS hacks like positioning and [floating](http://cs
   <div>flex item</div>
 </div>
 ```
-  </div>
 </figure>
 
 ## Container properties
@@ -74,22 +72,23 @@ I've gotten so used to using CSS hacks like positioning and [floating](http://cs
 :  Authors are encouraged to control flexibility using the `flex` shorthand rather than with its longhand properties directly (below), as the shorthand correctly resets any unspecified components to accommodate common uses^[[W3C Editor's Draft: CC Flexbox Module](https://drafts.csswg.org/css-flexbox-1/#flex-components)]
 
 <figure class="pop">
-  <figcaption>Milti-line flex containers with `flex: initial` and `flex: auto`:</figcaption>
+  <figcaption>Milti-line flex containers with `flex: initial` and `flex: auto`.</figcaption>
   <div class="demo-cfp--figure">
-    <div class="demo-cfp--flexcontainer demo-cfp--styled w-small">
-      <div>foo</div>
-      <div>bar</div>
-      <div>fuuu</div>
-      <div>baaa</div>
-    </div>
-    <div class="demo-cfp--flexcontainer demo-cfp--styled demo-cfp--flexlines-width-auto w-small">
+    <div class="demo-cfp--flexcontainer demo-cfp--flexcontainer-wrap demo-cfp--styled w-small">
       <div>foo</div>
       <div>bar</div>
       <div>fuuu</div>
       <div>baaa</div>
     </div>
   </div>
-  <div class="demo-cfp--flexcontainer demo-cfp--flexlines-width-auto">
+  <div class="demo-cfp--figure">
+    <div class="demo-cfp--flexcontainer demo-cfp--flexcontainer-wrap demo-cfp--styled demo-cfp--flexlines-width-auto w-small">
+      <div>foo</div>
+      <div>bar</div>
+      <div>fuuu</div>
+      <div>baaa</div>
+    </div>
+  </div>
 
 ```html
 <div class="flex-container">
@@ -122,7 +121,6 @@ I've gotten so used to using CSS hacks like positioning and [floating](http://cs
   flex: auto;
 }
 ```
-  </div>
 </figure>
 
 `flex-grow`
@@ -226,7 +224,8 @@ nav > ul > #login {
     flex-direction: column;
   }
 }
-```</figure>
+```
+</figure>
 
 
 ## Additional resources

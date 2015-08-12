@@ -1,4 +1,5 @@
 blockquote[class*="demo"] {
+  margin-left: 0;
   padding: 0.5em 1em;
   border-width: 1px 1px 1px 5px;
   border-style: solid;
@@ -19,3 +20,43 @@ blockquote[class*="demo"] {
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content; }
+
+.demo-css3--object {
+  margin-top: .5em; }
+  .demo-css3--object > img {
+    background-color: #eee;
+    background-image: -webkit-linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc), -webkit-linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc);
+    background-image: linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc), linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc);
+    background-size: 20px 20px;
+    background-position: 0 0, 30px 30px;
+    border: 3px solid black;
+    width: 80px;
+    height: 100px;
+    margin-right: .5em; }
+  .demo-css3--object > img:nth-child(even) {
+    width: 200px; }
+  .demo-css3--object.object-fit--fill > img {
+    -o-object-fit: fill;
+       object-fit: fill; }
+  .demo-css3--object.object-fit--contain > img {
+    -o-object-fit: contain;
+       object-fit: contain; }
+  .demo-css3--object.object-fit--cover > img {
+    -o-object-fit: cover;
+       object-fit: cover; }
+  .demo-css3--object.object-fit--none > img {
+    -o-object-fit: none;
+       object-fit: none; }
+  .demo-css3--object.object-fit--scale-down > img {
+    -o-object-fit: scale-down;
+       object-fit: scale-down; }
+
+.demo-css3--crop-cover > img {
+  height: 200px; }
+
+.demo-css3--crop-cover > img + img {
+  width: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  margin-top: 1em; }

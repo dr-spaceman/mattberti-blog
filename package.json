@@ -30,7 +30,6 @@
     "moment": "^2.7.0",
     "morgan": "~1.0.0",
     "serve-favicon": "^2.3.0",
-    "static-favicon": "~1.0.0",
     "tape": "^4.0.1"
   },
   "devDependencies": {
