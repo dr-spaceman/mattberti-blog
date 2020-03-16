@@ -28,7 +28,7 @@
     "markdown-it-deflist": "^1.0.0",
     "markdown-it-footnote": "^1.0.0",
     "moment": "^2.7.0",
-    "morgan": "~1.0.0",
+    "morgan": "~1.9.1",
     "serve-favicon": "^2.3.0",
     "tape": "^4.0.1"
   },
