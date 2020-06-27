@@ -1,4 +1,4 @@
-Recently I had the urge to test out some of the amazing stuff I was learning in [React]() on some real data from a [side-project](http://videogamin.squarehaven.com "Videogame Site"). I wanted to use [hooks]() and [JSX](), and I just wanted to load the React engine via `<script>` tags in the browser, then have the browser compile the JavaScript and JSX. This is obviously purely for development purposes, since the time and expense needed to compile is unsuitable for production.
+Recently I had the urge to test out some of the amazing stuff I was learning in [React](https://reactjs.org) on some real data from a [side-project](http://videogamin.squarehaven.com "Videogame Site"). I wanted to use [hooks](https://reactjs.org/docs/hooks-intro.html) and [JSX](https://reactjs.org/docs/introducing-jsx.html), and I just wanted to load the React engine via `<script>` tags in the browser, then have the browser compile the JavaScript and JSX. This is obviously purely for development purposes, since the time and expense needed to compile is unsuitable for production.
 
 To get __React with hooks and JSX up quickly and easily__, do the following:
 
@@ -8,7 +8,7 @@ To get __React with hooks and JSX up quickly and easily__, do the following:
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
 ```
-2. Enclose your JavaScript/JSX in a `script` tag that defines the appropriate content type
+2. Enclose your JavaScript/JSX in a `script` tag. You must define the  script type as `text/babel` so the Babel engine knows to compile it.
 ```html
 <script type="text/babel">
 const element = (
@@ -20,4 +20,4 @@ ReactDOM.render(element, document.getElementById('root'));
 </script>
 ```
 3. Load your app in your browser.
-4. Now that your app is running, respond with an appropriate `React`ion like glee or chest-thumping
+4. Now that your app is running, respond with an appropriate `React`ion like glee or chest-thumping.
