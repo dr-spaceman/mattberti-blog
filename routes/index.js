@@ -8,13 +8,15 @@ var fs = require('fs');
 var Article = require('../models/article.js');
 
 router.param('article', function (req, res, next, articleKey) {
-	Article.get(articleKey, function(err, article){
+	Article.get(articleKey, function(err, article) {
 		if (err) {
 			var err = new Error('Blog article not found ¯\\_(ツ)_/¯');
 			err.status = 404;
+			
 			next(err);
 		} else if (article) {
 			req.article = article;
+
 			next();
 		} else {
 			next(new Error("Failed to load article"));
